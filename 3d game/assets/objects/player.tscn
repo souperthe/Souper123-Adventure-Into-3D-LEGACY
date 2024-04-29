@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/scripts/player.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/shadow.png" type="Texture" id=2]
+[ext_resource path="res://assets/sound/sfx_jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/sfx_step.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/soupermodel.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CylinderShape" id=1]
+height = 3.0
+radius = 0.4
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="RayShape" id=3]
+length = 2.0
+
+[sub_resource type="AudioStreamRandomPitch" id=4]
+audio_stream = ExtResource( 3 )
+
+[node name="player" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+shape = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+visible = false
+radius = 0.7
+height = 3.0
+material = SubResource( 2 )
+
+[node name="camera" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="SpringArm" type="SpringArm" parent="camera"]
+spring_length = 10.0
+margin = 1.0
+
+[node name="Camera" type="Camera" parent="camera/SpringArm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
+fov = 50.0
+
+[node name="dropshadow" type="SpringArm" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+collision_mask = 2
+shape = SubResource( 3 )
+spring_length = 50.0
+margin = 0.0
+
+[node name="Spatial" type="Spatial" parent="dropshadow"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01 )
+
+[node name="land" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_size = 10.0
+bus = "SFX"
+
+[node name="jump" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+stream = SubResource( 4 )
+unit_size = 10.0
+bus = "SFX"
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="soupermodel" parent="." instance=ExtResource( 6 )]
+
+[node name="RayCast" type="RayCast" parent="."]
+cast_to = Vector3( 0, -50, 0 )
+
+[node name="SpringArm" type="SpringArm" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0 )
+collision_mask = 2
+spring_length = 50.0
+
+[node name="shadow" type="Sprite3D" parent="SpringArm"]
+transform = Transform( 0.7, 0, 0, 0, -0.7, 0, 0, 6.11959e-08, 0, 0, -0.087054, 0 )
+opacity = 0.5
+pixel_size = 0.04
+texture = ExtResource( 2 )

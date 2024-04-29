@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/objects/collide_block.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/objects/collectable.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/objects/collide_slope.tscn" type="PackedScene" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262222, 1.00001, -0.136846 )
+
+[node name="collectable" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 1, -20 )
+
+[node name="collectable2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1, -20 )
+
+[node name="collectable3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1, -20 )
+
+[node name="collectable4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 1, -20 )
+
+[node name="collide" parent="." instance=ExtResource( 1 )]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0 )
+
+[node name="collide2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -25, -1, -1 )
+
+[node name="collide3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -35, 2, -1 )
+
+[node name="collide4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -35, 2, 16 )
+
+[node name="collide_slope" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 35, 3, -12 )
+
+[node name="collide5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 10, 44, 0, -18 )
