@@ -1,0 +1,11 @@
+[gd_resource type="SpatialMaterial" format=2]
+
+[resource]
+flags_transparent = true
+flags_vertex_lighting = true
+flags_albedo_tex_force_srgb = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color( 0, 1, 0, 0.352941 )
+uv1_triplanar = true
+uv2_triplanar = true

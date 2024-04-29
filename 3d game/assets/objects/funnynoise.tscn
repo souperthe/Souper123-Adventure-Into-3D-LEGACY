@@ -1,0 +1,164 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/scripts/funnynoise.gd" type="Script" id=1]
+[ext_resource path="res://assets/sound/sfx_menubutton2.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/sound/sfx_menubutton5.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/sfx_menubutton6.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound/sfx_menubutton10.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sound/sfx_menubutton11.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sound/sfx_menubutton1.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sound/sfx_menubutton7.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sound/sfx_menubutton9.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/sound/sfx_menubutton8.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/sound/sfx_menubutton4.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sound/sfx_menubutton3.wav" type="AudioStream" id=12]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 7 )
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 2 )
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 12 )
+
+[sub_resource type="AudioStreamRandomPitch" id=4]
+audio_stream = ExtResource( 11 )
+
+[sub_resource type="AudioStreamRandomPitch" id=5]
+audio_stream = ExtResource( 3 )
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+audio_stream = ExtResource( 4 )
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+audio_stream = ExtResource( 8 )
+
+[sub_resource type="AudioStreamRandomPitch" id=8]
+audio_stream = ExtResource( 10 )
+
+[sub_resource type="AudioStreamRandomPitch" id=9]
+audio_stream = ExtResource( 9 )
+
+[sub_resource type="AudioStreamRandomPitch" id=10]
+audio_stream = ExtResource( 5 )
+
+[sub_resource type="AudioStreamRandomPitch" id=11]
+audio_stream = ExtResource( 6 )
+
+[node name="funnynoise" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="a" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 1 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="b" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 2 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="c" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 3 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="d" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 4 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="e" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 5 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="f" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 6 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="g" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 7 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="h" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 8 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="i" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 9 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="j" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 10 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="k" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource( 11 )
+attenuation_model = 1
+unit_db = -20.0
+unit_size = 20.0
+out_of_range_mode = 1
+bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

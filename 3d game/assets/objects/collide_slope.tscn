@@ -1,18 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/scripts/collide.gd" type="Script" id=1]
-[ext_resource path="res://assets/images/checkerfloor.png" type="Texture" id=2]
-
-[sub_resource type="SpatialMaterial" id=2]
-flags_transparent = true
-flags_unshaded = true
-flags_vertex_lighting = true
-flags_albedo_tex_force_srgb = true
-vertex_color_use_as_albedo = true
-vertex_color_is_srgb = true
-albedo_color = Color( 0, 1, 0, 0.482353 )
-albedo_texture = ExtResource( 2 )
-uv1_triplanar = true
+[ext_resource path="res://assets/misc/debugtext.tres" type="Material" id=2]
 
 [sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( 1, -1, 0, 1, 1, 0, 1, 1, 2, 1, -1, 2, -1, -1, 0, -1, -1, 2 )
@@ -26,7 +15,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 polygon = PoolVector2Array( -1, -1, 1, 1, 1, -1 )
 depth = 2.0
-material = SubResource( 2 )
+material = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
