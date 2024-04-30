@@ -144,7 +144,8 @@ func _physics_process(delta):
 				state = states.gp_prep
 				velocity.y = jumpheight * 2
 			$soupermodel/root/limb.playback_speed = 15
-			$soupermodel/root/limb.play("spin")
+			if $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep"):
+				$soupermodel/root/limb.play("spin")
 			snapvector = Vector3.UP
 			velocity.x = lerp(velocity.x, movex * movespeed, 2 * delta)
 			velocity.z = lerp(velocity.z, movez * movespeed, 2 * delta)
