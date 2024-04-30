@@ -50,7 +50,7 @@ transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 10, 44, 0, -18 )
 environment = ExtResource( 5 )
 
 [node name="collide6" parent="." instance=ExtResource( 1 )]
-transform = Transform( -2.18557e-07, 0, 5, 0, 20, 0, -5, 0, -2.18557e-07, -5.5, 19, 43.5 )
+transform = Transform( -2.18557e-07, 0, 5, 0, 20, 0, -5, 0, -2.18557e-07, -5.5, 9, 43.5 )
 
 [node name="collide7" parent="." instance=ExtResource( 1 )]
-transform = Transform( -2.18557e-07, 0, 5, 0, 20, 0, -5, 0, -2.18557e-07, 11.5, 19, 43.5 )
+transform = Transform( -2.18557e-07, 0, 5, 0, 20, 0, -5, 0, -2.18557e-07, 11.5, 9, 43.5 )
