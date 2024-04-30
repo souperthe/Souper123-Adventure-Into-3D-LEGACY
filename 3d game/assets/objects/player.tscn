@@ -39,10 +39,10 @@ height = 3.0
 material = SubResource( 2 )
 
 [node name="camera" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0221653, 2, 0.0186653 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, 2, 0.019 )
 
 [node name="SpringArm" type="SpringArm" parent="camera"]
-spring_length = 15.0
+spring_length = 25.0
 margin = 1.0
 
 [node name="Camera" type="Camera" parent="camera/SpringArm"]
@@ -50,6 +50,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
 doppler_tracking = 2
 fov = 40.0
 size = 10.0
+far = 200.0
 
 [node name="dropshadow" type="SpringArm" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -65,12 +66,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01 )
 stream = ExtResource( 4 )
 unit_size = 15.0
 bus = "SFX"
+attenuation_filter_db = 0.0
 
 [node name="jump" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 stream = SubResource( 4 )
 unit_size = 15.0
 bus = "SFX"
+attenuation_filter_cutoff_hz = 1.0
+attenuation_filter_db = 0.0
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 
@@ -83,10 +87,12 @@ cast_to = Vector3( 0, -50, 0 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0 )
 collision_mask = 2
 spring_length = 100.0
-margin = 0.07
+margin = 1.0
 
-[node name="shadow" type="Sprite3D" parent="SpringArm"]
-transform = Transform( 0.7, 0, 0, 0, -0.7, 0, 0, 6.11959e-08, 0, 0, -0.000933458, -0.1 )
+[node name="Spatial" type="Spatial" parent="SpringArm"]
+
+[node name="shadow" type="Sprite3D" parent="SpringArm/Spatial"]
+transform = Transform( 0.7, 0, 0, 0, -0.7, 0, 0, 6.11959e-08, 0, -0.004, -0.022, 0.9 )
 opacity = 0.8
 pixel_size = 0.05
 texture = ExtResource( 2 )

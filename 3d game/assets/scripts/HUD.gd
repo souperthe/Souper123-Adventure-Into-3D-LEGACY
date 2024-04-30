@@ -11,6 +11,8 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _process(delta):
+func _physics_process(delta):
 	$Control/RichTextLabel.text = str("score: ", global.score)
+	$Control/RichTextLabel2.text = str("player state: ", global.player.state)
+	$Control/RichTextLabel3.text = str("delta: ", delta)
 	pass
