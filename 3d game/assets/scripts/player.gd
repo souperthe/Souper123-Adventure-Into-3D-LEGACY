@@ -117,9 +117,11 @@ func _physics_process(delta):
 					velocity.y = jumpheight * 1.5
 					velocity.x = -velocity.x
 					velocity.z = -velocity.z
-			if key_run:
+			if key_run2:
 				$soupermodel/root/limb.playback_speed = 1
 				$soupermodel/root/limb.play("groundpoundprep")
+				$soupermodel/yea.play()
+				$soupermodel/AnimationPlayer.play("actual jump")
 				state = states.gp_prep
 				velocity.y = jumpheight * 2
 			if $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep"):
@@ -138,9 +140,11 @@ func _physics_process(delta):
 				state = states.normal
 				velocity.y -= 10
 		states.wallbounce:
-			if key_run:
+			if key_run2:
 				$soupermodel/root/limb.playback_speed = 1
 				$soupermodel/root/limb.play("groundpoundprep")
+				$soupermodel/yea.play()
+				$soupermodel/AnimationPlayer.play("actual jump")
 				state = states.gp_prep
 				velocity.y = jumpheight * 2
 			$soupermodel/root/limb.playback_speed = 15
@@ -179,9 +183,8 @@ func _physics_process(delta):
 			$soupermodel/root/limb.playback_speed = 7
 			velocity.y -= gravity * 4
 			if is_on_floor():
-				$bounce.play()
 				$land.play()
-				$soupermodel/AnimationPlayer.play("actual jump")
+				$soupermodel/AnimationPlayer.play("jump")
 				state = states.wallbounce
 				$soupermodel/root/limb.playback_speed = 3
 				$soupermodel/root/limb.play("spin")
@@ -205,6 +208,7 @@ var key_down = 0
 var key_jump = 0
 var key_jump2 = 0
 var key_run = 0
+var key_run2 = 0
 var key_m1 = 0
 var key_m12 = 0
 var key_m2 = 0
@@ -222,6 +226,7 @@ func get_inputs():
 	key_jump = Input.is_action_pressed("player_jump")
 	key_jump2 = Input.is_action_just_pressed("player_jump")
 	key_run = Input.is_action_pressed("player_run")
+	key_run2 = Input.is_action_just_pressed("player_run")
 	key_m1 = Input.is_action_pressed("player_action1")
 	key_m12 = Input.is_action_just_pressed("player_action1")
 	key_m2 = Input.is_action_pressed("player_action2")
