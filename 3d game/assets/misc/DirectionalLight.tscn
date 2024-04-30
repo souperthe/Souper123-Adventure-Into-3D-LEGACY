@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/scripts/DirectionalLight.gd" type="Script" id=1]
+
+[node name="lighting" type="DirectionalLight"]
+transform = Transform( 0.524194, -0.536217, 0.661583, 0, 0.776871, 0.62966, -0.851599, -0.330064, 0.407231, 4.40183, 2.79045, 2.57139 )
+sorting_use_aabb_center = false
+light_energy = 0.822
+light_indirect_energy = 1.511
+light_specular = 0.0
+light_bake_mode = 0
+directional_shadow_mode = 0
+directional_shadow_max_distance = 0.0
+script = ExtResource( 1 )

@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/objects/collide_block.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/collectable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/objects/collide_slope.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/misc/world_env.tres" type="Environment" id=5]
+[ext_resource path="res://assets/misc/DirectionalLight.tscn" type="PackedScene" id=6]
 
 [node name="Spatial" type="Spatial"]
+
+[node name="DirectionalLight" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 20, 0 )
+target = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262222, 26.792, -0.136846 )
@@ -39,3 +45,6 @@ transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 35, 3, -12 )
 
 [node name="collide5" parent="." instance=ExtResource( 1 )]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 10, 44, 0, -18 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )

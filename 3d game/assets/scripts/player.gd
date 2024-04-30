@@ -11,7 +11,9 @@ var maxangle = 90
 var minangle = -80
 var grounded = false
 var movespeed = 20
+onready var model = $soupermodel
 var gravity = 1
+onready var camera = $camera
 var jumpheight = 25
 var doland = false
 
@@ -19,7 +21,8 @@ enum states{
 	normal,
 	jump,
 	punch,
-	wallbounce
+	wallbounce,
+	gp_prep
 }
 var state = states.wallbounce
 var dropshadow_distance = 0
@@ -107,18 +110,23 @@ func _physics_process(delta):
 				if key_jump2:
 					$bounce.play()
 					$land.play()
-					$soupermodel/AnimationPlayer.play("jump")
+					$soupermodel/AnimationPlayer.play("actual jump")
 					state = states.wallbounce
 					$soupermodel/root/limb.playback_speed = 3
 					$soupermodel/root/limb.play("spin")
 					velocity.y = jumpheight * 1.5
 					velocity.x = -velocity.x
 					velocity.z = -velocity.z
-			if $soupermodel/root/limb.current_animation != ("actual jump"):
+			if key_run:
+				$soupermodel/root/limb.playback_speed = 1
+				$soupermodel/root/limb.play("groundpoundprep")
+				state = states.gp_prep
+				velocity.y = jumpheight * 2
+			if $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep"):
 				$soupermodel/root/limb.play("fall")
 			snapvector = Vector3.UP
-			velocity.x = lerp(velocity.x, movex * movespeed, 1 * delta)
-			velocity.z = lerp(velocity.z, movez * movespeed, 1 * delta)
+			velocity.x = lerp(velocity.x, movex * movespeed, 5 * delta)
+			velocity.z = lerp(velocity.z, movez * movespeed, 5 * delta)
 			if not is_on_floor():
 				velocity.y -= gravity
 			if grounded:
@@ -130,6 +138,11 @@ func _physics_process(delta):
 				state = states.normal
 				velocity.y -= 10
 		states.wallbounce:
+			if key_run:
+				$soupermodel/root/limb.playback_speed = 1
+				$soupermodel/root/limb.play("groundpoundprep")
+				state = states.gp_prep
+				velocity.y = jumpheight * 2
 			$soupermodel/root/limb.playback_speed = 15
 			$soupermodel/root/limb.play("spin")
 			snapvector = Vector3.UP
@@ -158,6 +171,20 @@ func _physics_process(delta):
 				$soupermodel.rotation.z = rand_range(180,-180)
 				$soupermodel.rotation.x = rand_range(180,-180)
 				$soupermodel.rotation.y = rand_range(180,-180)
+		states.gp_prep:
+			velocity.x = lerp(velocity.x, 0, 5 * delta)
+			velocity.z = lerp(velocity.z, 0, 5 * delta)
+			snapvector = Vector3.UP
+			$soupermodel/root/limb.playback_speed = 7
+			velocity.y -= gravity * 4
+			if is_on_floor():
+				$bounce.play()
+				$land.play()
+				$soupermodel/AnimationPlayer.play("actual jump")
+				state = states.wallbounce
+				$soupermodel/root/limb.playback_speed = 3
+				$soupermodel/root/limb.play("spin")
+				velocity.y = jumpheight * 1.5
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
 			
