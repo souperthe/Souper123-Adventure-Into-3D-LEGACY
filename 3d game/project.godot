@@ -39,7 +39,7 @@ global="*res://assets/objects/global.tscn"
 window/size/width=640
 window/size/height=480
 window/stretch/mode="viewport"
-window/stretch/aspect="keep"
+window/stretch/aspect="expand"
 
 [editor]
 

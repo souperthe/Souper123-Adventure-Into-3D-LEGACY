@@ -166,7 +166,7 @@ func _physics_process(delta):
 				$soupermodel/swoosh.play()
 				state = states.gp_prep
 				velocity.y = jumpheight * 2
-			if $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep")  and $soupermodel/root/limb.current_animation != ("gp_jump") and $soupermodel/root/limb.current_animation != ("spin"):
+			if $soupermodel/root/limb.current_animation != ("gp_spin") and $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep")  and $soupermodel/root/limb.current_animation != ("gp_jump") and $soupermodel/root/limb.current_animation != ("spin"):
 				$soupermodel/root/limb.play("fall")
 			snapvector = Vector3.UP
 			velocity.x = lerp(velocity.x, movex * movespeed, 5 * delta)
@@ -259,12 +259,12 @@ func _physics_process(delta):
 					#$bounce.play()
 					$land.play()
 					$soupermodel/AnimationPlayer.stop()
-					$soupermodel/AnimationPlayer.play("actual jump")
+					$soupermodel/AnimationPlayer.play("bigjump")
 					$bounce.play()
 					state = states.jump
-					$soupermodel/root/limb.playback_speed = 20
-					$soupermodel/root/limb.play("actual jump")
-					velocity.y = jumpheight * 1.2
+					$soupermodel/root/limb.playback_speed = -15
+					$soupermodel/root/limb.play("gp_spin")
+					velocity.y = jumpheight * 1.5
 					$crash.play()
 					camerashake(2, 0.1)
 					thing1()
