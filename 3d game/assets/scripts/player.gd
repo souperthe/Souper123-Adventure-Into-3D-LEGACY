@@ -160,6 +160,9 @@ func _physics_process(delta):
 				#velocity.y = 0
 			punch()
 		states.jump:
+			if velocity.y > 10:
+				if !key_jump:
+					velocity.y = 10
 			if key_run2:
 				$soupermodel/root/limb.playback_speed = 0.5
 				$soupermodel/root/limb.play("groundpoundprep")
@@ -235,13 +238,16 @@ func _physics_process(delta):
 				state = states.wallbounce
 				$soupermodel/root/limb.playback_speed = 3
 				$soupermodel/root/limb.play("spin")
+				$wall.play()
+				#$jump.play()
 				velocity.y = walljumped * (jumpheight * 1.7)
 				velocity.x = -velocity.x * 1.5
 				velocity.z = -velocity.z * 2
 			if grounded and is_on_wall():
 				$attack.stop()
-				velocity.x = -velocity.x / 2.5
-				velocity.z = -velocity.z / 2.5
+				velocity.x = -velocity.x
+				velocity.z = -velocity.z
+				$wall.play()
 			#$soupermodel/root/limb.play("idle")
 			velocity.y -= gravity
 			snapvector = Vector3.UP
