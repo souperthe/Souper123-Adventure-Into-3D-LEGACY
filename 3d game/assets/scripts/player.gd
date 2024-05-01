@@ -77,8 +77,8 @@ func punch():
 		#$soupermodel/AnimationPlayer.play("attack")
 		if !is_on_floor():
 			punchtime = 0
-			velocity.z = camera_dir.z * 35
-			velocity.x = camera_dir.x * 35
+			velocity.z = camera_dir.z * 45
+			velocity.x = camera_dir.x * 45
 			velocity.y += jumpheight / 2
 			$soupermodel/root/limb.playback_speed = 1
 			$soupermodel/root/limb.play("dive")
@@ -214,8 +214,8 @@ func _physics_process(delta):
 			punch()
 		states.punch:
 			if $soupermodel/root/limb.current_animation == ("dive"):
-				velocity.x = lerp(velocity.x, movex * movespeed, 2 * delta)
-				velocity.z = lerp(velocity.z, movez * movespeed, 2 * delta)
+				velocity.x = lerp(velocity.x, movex * 45, 2 * delta)
+				velocity.z = lerp(velocity.z, movez * 45, 2 * delta)
 			if grounded and key_jump2:
 				state = states.attackjump
 				velocity.y = jumpheight
@@ -248,9 +248,9 @@ func _physics_process(delta):
 			punchtime -= 300 * delta
 			if grounded and !punchtime > 0:
 				state = states.normal
-				velocity.y = 0
-				velocity.z = 0
-				velocity.x = 0
+				#velocity.y = 0
+				#velocity.z = 0
+				#velocity.x = 0
 		states.gp_prep:
 			velocity.x = lerp(velocity.x, movex * 35, 2 * delta)
 			velocity.z = lerp(velocity.z, movez * 35, 2 * delta)
