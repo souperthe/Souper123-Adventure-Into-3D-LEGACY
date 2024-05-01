@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/3D49A9D5_c.png-a2a6898d50bcfd42ee02d9d88cd15d38.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/misc/Textures/3D49A9D5_c.png"
+dest_files=[ "res://.import/3D49A9D5_c.png-a2a6898d50bcfd42ee02d9d88cd15d38.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

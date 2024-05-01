@@ -26,8 +26,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="3d Game"
-run/main_scene="res://assets/scenes/test.tscn"
+config/name="Souper123"
+run/main_scene="res://assets/scenes/title.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -40,6 +40,10 @@ window/size/width=640
 window/size/height=480
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[editor]
+
+version_control_autoload_on_startup=true
 
 [gui]
 

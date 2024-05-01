@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/shadow.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sound/sfx_wallbounce.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sound/sfx_swish.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/sound/sfx_hitwall.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/objects/pause.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CylinderShape" id=1]
 height = 3.0
@@ -56,9 +57,14 @@ margin = 1.0
 [node name="Camera" type="Camera" parent="camera/SpringArm"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
 doppler_tracking = 2
+current = true
 fov = 40.0
 size = 10.0
-far = 200.0
+near = 1.0
+far = 250.0
+
+[node name="shaketime" type="Timer" parent="camera/SpringArm/Camera"]
+one_shot = true
 
 [node name="dropshadow" type="SpringArm" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -83,6 +89,11 @@ unit_size = 15.0
 bus = "SFX"
 attenuation_filter_cutoff_hz = 1.0
 attenuation_filter_db = 0.0
+
+[node name="pause" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="pause" parent="pause" instance=ExtResource( 10 )]
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
 

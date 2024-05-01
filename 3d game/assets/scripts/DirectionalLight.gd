@@ -20,3 +20,7 @@ func _process(_delta):
 	translation = realtarget.translation
 	rotation = realtarget.camera.rotation
 	pass
+
+
+func _on_pttal_body_entered(body):
+	pass # Replace with function body.

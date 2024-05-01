@@ -3,6 +3,7 @@ extends Node2D
 var score = 0
 var debug = true
 var player
+var lives = 2
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

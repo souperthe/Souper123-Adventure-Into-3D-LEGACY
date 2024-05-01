@@ -3872,7 +3872,7 @@ script = ExtResource( 10 )
 [node name="root" type="Spatial" parent="."]
 
 [node name="torso" type="Spatial" parent="root"]
-transform = Transform( 0.984808, -0.0593912, 0.163176, 0, 0.939693, 0.34202, -0.173648, -0.336824, 0.925417, 0, 0.84, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84, 0 )
 
 [node name="torsomesh" type="MeshInstance" parent="root/torso"]
 transform = Transform( -2.64459e-08, 0, 0.605011, 0, 0.605011, 0, -0.605011, 0, -2.64459e-08, 0, 0.331506, 0 )
@@ -3889,7 +3889,7 @@ mesh = SubResource( 15 )
 skeleton = NodePath("../../../..")
 
 [node name="head" type="Spatial" parent="root/torso"]
-transform = Transform( 0.965926, -0.0669873, -0.25, 0, 0.965926, -0.258819, 0.258819, 0.25, 0.933013, 0, 0.332315, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332315, 0 )
 
 [node name="headmesh" type="MeshInstance" parent="root/torso/head"]
 transform = Transform( 0.774, 0, 0, 0, 0.774, 0, 0, 0, 0.774, 0, 0.639169, -0.0917227 )
@@ -3918,7 +3918,7 @@ skeleton = NodePath("../../../..")
 material/0 = SubResource( 21 )
 
 [node name="leftleg" type="Spatial" parent="root/torso"]
-transform = Transform( 0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 0.223646, -0.290246, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223646, -0.290246, 0 )
 
 [node name="leftlegmesh" type="MeshInstance" parent="root/torso/leftleg"]
 transform = Transform( -0.0402272, 0, -4.79546e-09, 0, -0.0402272, 0, 4.79546e-09, 0, -0.0402272, 0.00223044, -0.42637, 0.0158271 )
@@ -3933,7 +3933,7 @@ skeleton = NodePath("../../../../..")
 material/0 = SubResource( 23 )
 
 [node name="rightleg" type="Spatial" parent="root/torso"]
-transform = Transform( 0.906308, -0.383022, 0.178606, 0, 0.422618, 0.906308, -0.422618, -0.821394, 0.383022, -0.221262, -0.297123, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221262, -0.297123, 0 )
 
 [node name="rightlegmesh" type="MeshInstance" parent="root/torso/rightleg"]
 transform = Transform( -0.0402272, 0, -4.79546e-09, 0, -0.0402272, 0, 4.79546e-09, 0, -0.0402272, 0.000401974, -0.419498, 0.0158271 )
@@ -3946,7 +3946,7 @@ mesh = SubResource( 14 )
 skeleton = NodePath("../../../../..")
 
 [node name="leftarm" type="Spatial" parent="root/torso"]
-transform = Transform( 0.25, -0.0669873, 0.965926, 0.258819, 0.965926, 0, -0.933013, 0.25, 0.258819, 0.2, 0.263, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 )
 
 [node name="leftarmmesh" type="MeshInstance" parent="root/torso/leftarm"]
 transform = Transform( 1.32755e-16, -0.0402272, 5.21805e-15, 0.0402272, 0, 3.03707e-09, 3.03707e-09, -5.21805e-15, -0.0402272, 0.081822, -0.00337541, 0.0158271 )
@@ -3960,7 +3960,7 @@ mesh = SubResource( 10 )
 skeleton = NodePath("../../../../..")
 
 [node name="rightarm" type="Spatial" parent="root/torso"]
-transform = Transform( 0.642788, -0.766044, 0, 0.262003, 0.219846, 0.939693, -0.719846, -0.604023, 0.34202, -0.2, 0.283, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.283, 0 )
 
 [node name="rightarmmesh" type="MeshInstance" parent="root/torso/rightarm"]
 transform = Transform( 1.32755e-16, 0.0402272, 1.27868e-09, 0.0402272, 0, -3.03707e-09, 3.03707e-09, -1.27868e-09, 0.0402272, -0.098827, -0.00337541, 0.0158261 )
