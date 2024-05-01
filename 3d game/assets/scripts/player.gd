@@ -28,9 +28,10 @@ enum states{
 	punch,
 	wallbounce,
 	gp_prep,
-	attackjump
+	attackjump,
+	entercourse
 }
-var state = states.wallbounce
+var state = states.entercourse
 var dropshadow_distance = 0
 var walljumped = float(1.0)
 
@@ -61,7 +62,7 @@ func funnysfx():
 	ghost.sound()
 	
 func thing1():
-	var whiteflash = preload("res://assets/objects/groundpartpart.tscn")
+	var whiteflash = preload("res://assets/objects/poundeffect.tscn")
 	var ghost: Spatial = whiteflash.instance()
 	get_tree().get_current_scene().add_child(ghost)
 	ghost.translation = self.translation
@@ -125,6 +126,8 @@ func _physics_process(delta):
 		$camera/SpringArm.spring_length -= 1
 	if Input.is_action_just_released("player_scrolldown"):
 		$camera/SpringArm.spring_length += 1
+	if is_on_ceiling():
+		velocity.y -= 10
 		
 	#$shadow.translation.y = $RayCast.target_translation.y
 	match(state):
@@ -300,6 +303,21 @@ func _physics_process(delta):
 				grounded = true
 				state = states.normal
 				velocity.y -= 10
+				
+		states.entercourse:
+			$soupermodel/root/limb.playback_speed = 15
+			$soupermodel/root/limb.play("spin")
+			if not is_on_floor():
+				velocity.y -= gravity / 1.5
+			if grounded:
+				$soupermodel/AnimationPlayer.stop()
+				$soupermodel/AnimationPlayer.play("jump")
+				$land.play()
+				velocity.y = 0
+				grounded = true
+				state = states.normal
+				velocity.y -= 10
+			punch()
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
 			
