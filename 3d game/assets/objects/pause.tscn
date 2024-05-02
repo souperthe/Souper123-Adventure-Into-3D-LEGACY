@@ -1,18 +1,77 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/scripts/pause.gd" type="Script" id=1]
-[ext_resource path="res://assets/sound/sfx_revin.wav" type="AudioStream" id=2]
-[ext_resource path="res://assets/sound/sfx_revout.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/sound/sfx_scratch.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/fonts/Whoduck.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/images/select thing.png" type="Texture" id=4]
 
-[sub_resource type="AudioStreamRandomPitch" id=1]
+[sub_resource type="AudioStreamRandomPitch" id=4]
 audio_stream = ExtResource( 2 )
 
-[sub_resource type="AudioStreamRandomPitch" id=2]
-audio_stream = ExtResource( 3 )
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "pause"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.176777, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "unpause"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 0.176777, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="pause" type="Control"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -23,9 +82,77 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.345098 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource( 1 )
+stream = SubResource( 4 )
 volume_db = -6.0
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = SubResource( 2 )
-volume_db = -6.0
+[node name="mainstuff" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="paused" type="RichTextLabel" parent="mainstuff"]
+margin_left = -80.0
+margin_top = 145.0
+margin_right = 81.0
+margin_bottom = 185.0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]Paused"
+text = "Paused"
+
+[node name="exit" type="RichTextLabel" parent="mainstuff"]
+margin_left = -80.0
+margin_top = 321.0
+margin_right = 81.0
+margin_bottom = 348.0
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]exit level"
+text = "exit level"
+
+[node name="restart" type="RichTextLabel" parent="mainstuff"]
+margin_left = -80.0
+margin_top = 257.0
+margin_right = 81.0
+margin_bottom = 284.0
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]restart level"
+text = "restart level"
+
+[node name="settings" type="RichTextLabel" parent="mainstuff"]
+margin_left = -80.0
+margin_top = 289.0
+margin_right = 81.0
+margin_bottom = 316.0
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]settings"
+text = "settings"
+
+[node name="resume" type="RichTextLabel" parent="mainstuff"]
+margin_left = -80.0
+margin_top = 225.0
+margin_right = 81.0
+margin_bottom = 252.0
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]resume"
+text = "resume"
+
+[node name="pointer" type="TextureRect" parent="mainstuff"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -12.0
+margin_right = -23.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/pause = SubResource( 5 )
+anims/unpause = SubResource( 6 )

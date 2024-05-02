@@ -1516,10 +1516,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( -0.00871682, 0.272707, -0.141919 ), Vector3( -0.00871682, 0.272707, -0.141919 ) ]
+"values": [ Vector3( -0.00871682, 0.272707, -0.141919 ), Vector3( -0.00871682, 0.272707, -0.141919 ), Vector3( -0.00871682, 0.272707, -0.141919 ), Vector3( -0.00871682, 0.272707, -0.141919 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("torso/tie:rotation_degrees")
@@ -1528,10 +1528,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 5, 0, 0 ), Vector3( 5, 0, 0 ) ]
+"values": [ Vector3( 5, 0, 0 ), Vector3( 5, 0, 0 ), Vector3( 5, 0, 0 ), Vector3( 5, 0, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("torso/tie:scale")
@@ -1540,10 +1540,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("torso:translation")
@@ -1552,10 +1552,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0, 0.84, 0 ), Vector3( 0, 0.84, 0 ) ]
+"values": [ Vector3( 0, 0.84, 0 ), Vector3( 0, 0.84, 0 ), Vector3( 0, 0.84, 0 ), Vector3( 0, 0.84, 0 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("torso:rotation_degrees")
@@ -1564,10 +1564,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 4, 4.01, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 180, 0, 0 ) ]
+"values": [ Vector3( -180, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 180, 0, 0 ), Vector3( -180, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("torso:scale")
@@ -1576,10 +1576,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("torso/head:translation")
@@ -1588,10 +1588,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0, 0.332315, 0 ), Vector3( 0, 0.332315, 0 ) ]
+"values": [ Vector3( 0, 0.332315, 0 ), Vector3( 0, 0.332315, 0 ), Vector3( 0, 0.332315, 0 ), Vector3( 0, 0.332315, 0 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("torso/head:rotation_degrees")
@@ -1600,10 +1600,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 20, 0, 0 ), Vector3( 20, 0, 0 ) ]
+"values": [ Vector3( 20, 0, 0 ), Vector3( 20, 0, 0 ), Vector3( 20, 0, 0 ), Vector3( 20, 0, 0 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("torso/head:scale")
@@ -1612,10 +1612,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("torso/leftleg:translation")
@@ -1624,10 +1624,10 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0.224, -0.35, 0 ), Vector3( 0.224, -0.35, 0 ) ]
+"values": [ Vector3( 0.224, -0.35, 0 ), Vector3( 0.224, -0.35, 0 ), Vector3( 0.224, -0.35, 0 ), Vector3( 0.224, -0.35, 0 ) ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("torso/leftleg:rotation_degrees")
@@ -1636,10 +1636,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ) ]
+"values": [ Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("torso/leftleg:scale")
@@ -1648,10 +1648,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("torso/rightleg:translation")
@@ -1660,10 +1660,10 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( -0.221, -0.35, 0 ), Vector3( -0.221, -0.35, 0 ) ]
+"values": [ Vector3( -0.221, -0.35, 0 ), Vector3( -0.221, -0.35, 0 ), Vector3( -0.221, -0.35, 0 ), Vector3( -0.221, -0.35, 0 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("torso/rightleg:rotation_degrees")
@@ -1672,10 +1672,10 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ) ]
+"values": [ Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ), Vector3( -50, 0, 0 ) ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("torso/rightleg:scale")
@@ -1684,10 +1684,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("torso/leftarm:transform")
@@ -1696,10 +1696,10 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 ) ]
+"values": [ Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 ), Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 ) ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("torso/leftarm:translation")
@@ -1708,10 +1708,10 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0.3, 0.283, 0 ), Vector3( 0.3, 0.283, 0 ) ]
+"values": [ Vector3( 0.3, 0.283, 0 ), Vector3( 0.3, 0.283, 0 ), Vector3( 0.3, 0.283, 0 ), Vector3( 0.3, 0.283, 0 ) ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("torso/leftarm:rotation_degrees")
@@ -1720,10 +1720,10 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 50 ), Vector3( 0, 0, 50 ) ]
+"values": [ Vector3( 0, 0, 50 ), Vector3( 0, 0, 50 ), Vector3( 0, 0, 50 ), Vector3( 0, 0, 50 ) ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("torso/leftarm:scale")
@@ -1732,10 +1732,10 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("torso/rightarm:translation")
@@ -1744,10 +1744,10 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( -0.3, 0.283, 0 ), Vector3( -0.3, 0.283, 0 ) ]
+"values": [ Vector3( -0.3, 0.283, 0 ), Vector3( -0.3, 0.283, 0 ), Vector3( -0.3, 0.283, 0 ), Vector3( -0.3, 0.283, 0 ) ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("torso/rightarm:rotation_degrees")
@@ -1756,10 +1756,10 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0, 0, -50 ), Vector3( 0, 0, -50 ) ]
+"values": [ Vector3( 0, 0, -50 ), Vector3( 0, 0, -50 ), Vector3( 0, 0, -50 ), Vector3( 0, 0, -50 ) ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("torso/rightarm:scale")
@@ -1768,10 +1768,10 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("torso/head/hat:translation")
@@ -1780,10 +1780,10 @@ tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0, 0.89978, -0.115541 ), Vector3( 0, 0.89978, -0.115541 ) ]
+"values": [ Vector3( 0, 0.89978, -0.115541 ), Vector3( 0, 0.89978, -0.115541 ), Vector3( 0, 0.89978, -0.115541 ), Vector3( 0, 0.89978, -0.115541 ) ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("torso/head/hat:rotation_degrees")
@@ -1792,10 +1792,10 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/24/type = "value"
 tracks/24/path = NodePath("torso/head/hat:scale")
@@ -1804,10 +1804,10 @@ tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.435275, 1.86606 ),
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.86606 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/25/type = "value"
 tracks/25/path = NodePath("../swoosh:playing")
@@ -3530,7 +3530,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 3.03143, 0.435275, 0.435275 ),
 "update": 0,
-"values": [ Vector3( 15, -30, -15 ), Vector3( -25, 15, 0 ), Vector3( -20, 10, 0 ) ]
+"values": [ Vector3( 15, -30, -15 ), Vector3( -25, 15, 0 ), Vector3( -27, 20, 0 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("torso:scale")
@@ -3686,7 +3686,7 @@ tracks/17/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 3.03143, 0.435275, 0.435275 ),
 "update": 0,
-"values": [ Vector3( -90, 0, -30 ), Vector3( 0, 75, 15 ), Vector3( 0, 75, 15 ) ]
+"values": [ Vector3( -90, 0, -30 ), Vector3( 20, 75, 23 ), Vector3( 0, 120, 15 ) ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("torso/leftarm:scale")
@@ -3696,9 +3696,9 @@ tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 3.03143, 1.27456, 1 ),
+"transitions": PoolRealArray( 1000, 0.258816, 1 ),
 "update": 0,
-"values": [ Vector3( 1, 1, 1 ), Vector3( 1.5, 1.5, 1.5 ), Vector3( 1, 1, 1 ) ]
+"values": [ Vector3( 1, 1, 1 ), Vector3( 2, 2, 2 ), Vector3( 1, 1, 1 ) ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("torso/rightarm:translation")
@@ -4189,7 +4189,7 @@ script = ExtResource( 10 )
 [node name="root" type="Spatial" parent="."]
 
 [node name="torso" type="Spatial" parent="root"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84, 0 )
+transform = Transform( 1, 0, 0, 0, 1, -7.00661e-05, 0, 7.00661e-05, 1, 0, 0.75012, 0 )
 
 [node name="torsomesh" type="MeshInstance" parent="root/torso"]
 transform = Transform( -2.64459e-08, 0, 0.605011, 0, 0.605011, 0, -0.605011, 0, -2.64459e-08, 0, 0.331506, 0 )
@@ -4206,7 +4206,7 @@ mesh = SubResource( 15 )
 skeleton = NodePath("../../../..")
 
 [node name="head" type="Spatial" parent="root/torso"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.332315, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999849, 0.017359, 0, -0.017359, 0.999849, 0, 0.332315, 0 )
 
 [node name="headmesh" type="MeshInstance" parent="root/torso/head"]
 transform = Transform( 0.774, 0, 0, 0, 0.774, 0, 0, 0, 0.774, 0, 0.639169, -0.0917227 )
@@ -4235,7 +4235,7 @@ skeleton = NodePath("../../../..")
 material/0 = SubResource( 21 )
 
 [node name="leftleg" type="Spatial" parent="root/torso"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.223646, -0.290246, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999999, 0.00163491, 0, -0.00163491, 0.999999, 0.224, -0.24008, 0.00013382 )
 
 [node name="leftlegmesh" type="MeshInstance" parent="root/torso/leftleg"]
 transform = Transform( -0.0402272, 0, -4.79546e-09, 0, -0.0402272, 0, 4.79546e-09, 0, -0.0402272, 0.00223044, -0.42637, 0.0158271 )
@@ -4250,7 +4250,7 @@ skeleton = NodePath("../../../../..")
 material/0 = SubResource( 23 )
 
 [node name="rightleg" type="Spatial" parent="root/torso"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.221262, -0.297123, 0 )
+transform = Transform( 1, 0, 0, 0, 0.999999, -0.0011678, 0, 0.0011678, 0.999999, -0.221, -0.24008, -0.00026764 )
 
 [node name="rightlegmesh" type="MeshInstance" parent="root/torso/rightleg"]
 transform = Transform( -0.0402272, 0, -4.79546e-09, 0, -0.0402272, 0, 4.79546e-09, 0, -0.0402272, 0.000401974, -0.419498, 0.0158271 )
@@ -4263,7 +4263,7 @@ mesh = SubResource( 14 )
 skeleton = NodePath("../../../../..")
 
 [node name="leftarm" type="Spatial" parent="root/torso"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.283247, 0 )
+transform = Transform( 0.642788, 0.766044, 0, -0.766043, 0.642786, -0.00210203, -0.00161025, 0.00135116, 0.999998, 0.2, 0.283246, 0 )
 
 [node name="leftarmmesh" type="MeshInstance" parent="root/torso/leftarm"]
 transform = Transform( 1.32755e-16, -0.0402272, 5.21805e-15, 0.0402272, 0, 3.03707e-09, 3.03707e-09, -5.21805e-15, -0.0402272, 0.081822, -0.00337541, 0.0158271 )
@@ -4277,7 +4277,7 @@ mesh = SubResource( 10 )
 skeleton = NodePath("../../../../..")
 
 [node name="rightarm" type="Spatial" parent="root/torso"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.283, 0 )
+transform = Transform( 0.642788, -0.766044, 0, 0.766043, 0.642786, 0.00210203, -0.00161025, -0.00135116, 0.999998, -0.2, 0.283, 0 )
 
 [node name="rightarmmesh" type="MeshInstance" parent="root/torso/rightarm"]
 transform = Transform( 1.32755e-16, 0.0402272, 1.27868e-09, 0.0402272, 0, -3.03707e-09, 3.03707e-09, -1.27868e-09, 0.0402272, -0.098827, -0.00337541, 0.0158261 )
@@ -4293,7 +4293,7 @@ material/0 = SubResource( 24 )
 
 [node name="limb" type="AnimationPlayer" parent="root"]
 playback_default_blend_time = 0.05
-playback_speed = 3.5
+playback_speed = 3.0
 anims/RESET = SubResource( 28 )
 "anims/actual jump" = SubResource( 33 )
 anims/dive = SubResource( 45 )

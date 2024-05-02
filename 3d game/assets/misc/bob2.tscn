@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://assets/misc/bob2.fbx" type="PackedScene" id=1]
 [ext_resource path="res://assets/misc/Shape_014.material" type="Material" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://assets/misc/Shape_024.material" type="Material" id=16]
 [ext_resource path="res://assets/misc/Shape_023.material" type="Material" id=17]
 [ext_resource path="res://assets/misc/Shape_010.material" type="Material" id=18]
+[ext_resource path="res://assets/misc/Textures/12436720_c.png" type="Texture" id=19]
 [ext_resource path="res://assets/misc/Shape_011.material" type="Material" id=20]
 [ext_resource path="res://assets/misc/Shape_012.material" type="Material" id=21]
 [ext_resource path="res://assets/misc/Shape_013.material" type="Material" id=22]
@@ -420,6 +421,9 @@ surfaces/0 = {
 [sub_resource type="ConcavePolygonShape" id=42]
 data = PoolVector3Array( 0.0236, 0.009, -0.0275, -0.0045, 0.009, -0.0453, -0.0045, 0.0078, -0.0453, 0.0391, 0.0078, -0.0225, 0.0391, 0.0103, -0.0379, 0.0391, 0.0104, -0.0225, 0.0391, 0.0078, -0.0225, 0.0391, 0.0078, -0.0379, 0.0391, 0.0103, -0.0379, 0.0236, 0.009, -0.0275, -0.0045, 0.0078, -0.0453, 0.0236, 0.0078, -0.0275, 0.0493, 0.0103, -0.0481, 0.0801, 0.0077, -0.0481, 0.0801, 0.0103, -0.0481, 0.0007, 0.0088, -0.0656, 0.0007, 0.0078, -0.0656, -0.0091, 0.0078, -0.0605, 0.0007, 0.0078, -0.0788, 0.0007, 0.0088, -0.0656, 0.0007, 0.0088, -0.0788, 0.0493, 0.0103, -0.0481, 0.0493, 0.0078, -0.0481, 0.0801, 0.0077, -0.0481, 0.0007, 0.0088, -0.0656, -0.0091, 0.0078, -0.0605, -0.0091, 0.0088, -0.0605, 0.0007, 0.0078, -0.0788, 0.0007, 0.0078, -0.0656, 0.0007, 0.0088, -0.0656, 0.0493, 0.0078, -0.0481, 0.0391, 0.0103, -0.0379, 0.0391, 0.0078, -0.0379, -0.0091, 0.0088, -0.0605, -0.0091, 0.0078, -0.0605, -0.0142, 0.0078, -0.0558, 0.0493, 0.0078, -0.0481, 0.0493, 0.0103, -0.0481, 0.0391, 0.0103, -0.0379, -0.0091, 0.0088, -0.0605, -0.0142, 0.0078, -0.0558, -0.0142, 0.0088, -0.0558, -0.0543, 0.0196, 0.0196, -0.0543, 0.0209, 0.0196, -0.0224, 0.0176, 0.0004, -0.0142, 0.0088, -0.0558, -0.0142, 0.0078, -0.0519, -0.0142, 0.0088, -0.0519, -0.0543, 0.0209, 0.0196, -0.0543, 0.0196, 0.0196, -0.0725, 0.0209, 0.0527, -0.0142, 0.0078, -0.0558, -0.0142, 0.0078, -0.0519, -0.0142, 0.0088, -0.0558, -0.0725, 0.0209, 0.0527, -0.0543, 0.0196, 0.0196, -0.0725, 0.0196, 0.0527, -0.0224, 0.0176, 0.0004, -0.0543, 0.0209, 0.0196, -0.0224, 0.0189, 0.0004 )
 
+[sub_resource type="SpatialMaterial" id=43]
+albedo_texture = ExtResource( 19 )
+
 [node name="bob2" instance=ExtResource( 1 )]
 
 [node name="StaticBody" type="StaticBody" parent="RootNode" index="0"]
@@ -615,3 +619,9 @@ skeleton = NodePath("../..")
 [node name="CollisionShape21" type="CollisionShape" parent="RootNode/StaticBody" index="41"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
 shape = SubResource( 42 )
+
+[node name="Shape_IndexedFaceSet009" parent="RootNode" index="1"]
+material_override = SubResource( 43 )
+lod_min_hysteresis = 100.0
+lod_max_hysteresis = 100.0
+software_skinning_transform_normals = false

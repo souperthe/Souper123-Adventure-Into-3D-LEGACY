@@ -20,7 +20,8 @@ var punchtime = 60
 var jumps = float(1)
 var attackcooldown = 10
 var shakeamount = 1
-
+onready var rootanimator = $soupermodel/AnimationPlayer
+onready var modelanimator = $soupermodel/root/limb
 
 enum states{
 	normal,
@@ -67,6 +68,12 @@ func thing1():
 	get_tree().get_current_scene().add_child(ghost)
 	ghost.translation = self.translation
 	
+func thing2():
+	var whiteflash = preload("res://assets/objects/groundpartpart.tscn")
+	var ghost: Spatial = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.translation = self.translation
+	
 func punch():
 	if attackcooldown < 0 and key_m12:
 		$attack.play()
@@ -74,20 +81,20 @@ func punch():
 		$soupermodel.rotation.y = atan2(-camera_dir.x, -camera_dir.z)
 		#velocity = (floor_checker.global_position - self_center.global_position).normalized() * jetpack_scala
 		state = states.punch
-		#$soupermodel/AnimationPlayer.play("attack")
+		#rootanimator.play("attack")
 		if !is_on_floor():
 			punchtime = 0
 			velocity.z = camera_dir.z * 45
 			velocity.x = camera_dir.x * 45
 			velocity.y += jumpheight / 2
-			$soupermodel/root/limb.playback_speed = 1
-			$soupermodel/root/limb.play("dive")
+			modelanimator.playback_speed = 1
+			modelanimator.play("dive")
 		if is_on_floor():
 			punchtime = 100
 			velocity.z = camera_dir.z * 20
 			velocity.x = camera_dir.x * 20
-			$soupermodel/root/limb.playback_speed = 8
-			$soupermodel/root/limb.play("punch")
+			modelanimator.playback_speed = 8
+			modelanimator.play("punch")
 				#$soupermodel.rotation.y = $camera.rotation.y
 	
 
@@ -137,24 +144,27 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x, movex * movespeed, 8 * delta)
 			velocity.z = lerp(velocity.z, movez * movespeed, 8 * delta)
 			if move_dir.x == 0 and move_dir.y == 0:
-				$soupermodel/root/limb.playback_speed = 2
-				$soupermodel/root/limb.play("idlenew")
+				modelanimator.playback_speed = 2
+				modelanimator.play("idlenew")
 			else:
-				$soupermodel/root/limb.playback_speed = 4
-				$soupermodel/root/limb.play("idlenew 2")
+				modelanimator.playback_speed = 4
+				modelanimator.play("idlenew 2")
 			if !movex == 0:
 				$soupermodel.rotation.y = atan2(-velocity.x, -velocity.z)
 				#$$soupermodel/root.rotation.x = -velocity.x
 			if grounded and key_jump2:
 				snapvector = Vector3.UP
-				velocity.y = jumpheight
+				if (move_dir.x == 0 and move_dir.z == 0):
+					velocity.y = jumpheight
+				if !(move_dir.x == 0 and move_dir.z == 0):
+					velocity.y = jumpheight * 1.2
 				state = states.jump
 				$jump.play()
 				doland = true
-				$soupermodel/AnimationPlayer.stop()
-				$soupermodel/AnimationPlayer.play("actual jump")
-				$soupermodel/root/limb.playback_speed = 3
-				$soupermodel/root/limb.play("actual jump")
+				rootanimator.stop()
+				rootanimator.play("actual jump")
+				modelanimator.playback_speed = 3
+				modelanimator.play("actual jump")
 			if !is_on_floor():
 				state = states.jump
 				#velocity.y = 0
@@ -164,24 +174,24 @@ func _physics_process(delta):
 				if !key_jump:
 					velocity.y = 10
 			if key_run2:
-				$soupermodel/root/limb.playback_speed = 0.5
-				$soupermodel/root/limb.play("groundpoundprep")
-				#$soupermodel/AnimationPlayer.stop()
-				#$soupermodel/AnimationPlayer.play("actual jump")
+				modelanimator.playback_speed = 0.5
+				modelanimator.play("groundpoundprep")
+				#rootanimator.stop()
+				#rootanimator.play("actual jump")
 				$soupermodel/yea.play()
 				$soupermodel/swoosh.play()
 				state = states.gp_prep
 				velocity.y = jumpheight * 2
-			if $soupermodel/root/limb.current_animation != ("gp_spin") and $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep")  and $soupermodel/root/limb.current_animation != ("gp_jump") and $soupermodel/root/limb.current_animation != ("spin"):
-				$soupermodel/root/limb.play("fall")
+			if modelanimator.current_animation != ("gp_spin") and modelanimator.current_animation != ("actual jump") and modelanimator.current_animation != ("groundpoundprep")  and modelanimator.current_animation != ("gp_jump") and modelanimator.current_animation != ("spin"):
+				modelanimator.play("fall")
 			snapvector = Vector3.UP
 			velocity.x = lerp(velocity.x, movex * movespeed, 5 * delta)
 			velocity.z = lerp(velocity.z, movez * movespeed, 5 * delta)
 			if not is_on_floor():
 				velocity.y -= gravity
 			if grounded:
-				$soupermodel/AnimationPlayer.stop()
-				$soupermodel/AnimationPlayer.play("jump")
+				rootanimator.stop()
+				rootanimator.play("jump")
 				$land.play()
 				velocity.y = 0
 				grounded = true
@@ -190,25 +200,25 @@ func _physics_process(delta):
 			punch()
 		states.wallbounce:
 			if key_run2:
-				$soupermodel/root/limb.playback_speed = 0.5
-				$soupermodel/root/limb.play("groundpoundprep")
-				#$soupermodel/AnimationPlayer.stop()
-				#$soupermodel/AnimationPlayer.play("actual jump")
+				modelanimator.playback_speed = 0.5
+				modelanimator.play("groundpoundprep")
+				#rootanimator.stop()
+				#rootanimator.play("actual jump")
 				$soupermodel/yea.play()
 				$soupermodel/swoosh.play()
 				state = states.gp_prep
 				velocity.y = jumpheight * 2
-			$soupermodel/root/limb.playback_speed = 15
-			if $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep"):
-				$soupermodel/root/limb.play("spin")
+			modelanimator.playback_speed = 15
+			if modelanimator.current_animation != ("actual jump") and modelanimator.current_animation != ("groundpoundprep"):
+				modelanimator.play("spin")
 			snapvector = Vector3.UP
 			velocity.x = lerp(velocity.x, movex * movespeed, 8 * delta)
 			velocity.z = lerp(velocity.z, movez * movespeed, 8 * delta)
 			if not is_on_floor():
 				velocity.y -= gravity
 			if grounded:
-				$soupermodel/AnimationPlayer.stop()
-				$soupermodel/AnimationPlayer.play("jump")
+				rootanimator.stop()
+				rootanimator.play("jump")
 				$land.play()
 				velocity.y = 0
 				grounded = true
@@ -216,7 +226,7 @@ func _physics_process(delta):
 				velocity.y -= 10
 			punch()
 		states.punch:
-			if $soupermodel/root/limb.current_animation == ("dive"):
+			if modelanimator.current_animation == ("dive"):
 				velocity.x = lerp(velocity.x, movex * 45, 2 * delta)
 				velocity.z = lerp(velocity.z, movez * 45, 2 * delta)
 			if grounded and key_jump2:
@@ -232,12 +242,12 @@ func _physics_process(delta):
 				$attack.stop()
 				#$soupermodel.rotation.y = -$soupermodel.rotation.y
 				$land.play()
-				$soupermodel/AnimationPlayer.stop()
-				$soupermodel/AnimationPlayer.play("actual jump")
+				rootanimator.stop()
+				rootanimator.play("actual jump")
 				walljumped += -0.08
 				state = states.wallbounce
-				$soupermodel/root/limb.playback_speed = 3
-				$soupermodel/root/limb.play("spin")
+				modelanimator.playback_speed = 3
+				modelanimator.play("spin")
 				$wall.play()
 				#$jump.play()
 				velocity.y = walljumped * (jumpheight * 1.7)
@@ -248,7 +258,7 @@ func _physics_process(delta):
 				velocity.x = -velocity.x
 				velocity.z = -velocity.z
 				$wall.play()
-			#$soupermodel/root/limb.play("idle")
+			#modelanimator.play("idle")
 			velocity.y -= gravity
 			snapvector = Vector3.UP
 			punchtime -= 300 * delta
@@ -261,49 +271,51 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x, movex * 35, 2 * delta)
 			velocity.z = lerp(velocity.z, movez * 35, 2 * delta)
 			snapvector = Vector3.UP
-			$soupermodel/root/limb.playback_speed = 4
+			modelanimator.playback_speed = 4
 			velocity.y -= gravity * 3
 			if is_on_floor():
 				if key_jump:
 					#$bounce.play()
 					$land.play()
-					$soupermodel/AnimationPlayer.stop()
-					$soupermodel/AnimationPlayer.play("bigjump")
+					rootanimator.stop()
+					rootanimator.play("bigjump")
 					$bounce.play()
 					state = states.jump
-					$soupermodel/root/limb.playback_speed = -15
-					$soupermodel/root/limb.play("gp_spin")
+					modelanimator.playback_speed = -15
+					modelanimator.play("gp_spin")
 					velocity.y = jumpheight * 1.5
 					$crash.play()
 					camerashake(2, 0.1)
 					thing1()
+					thing2()
 				if !key_jump:
 					#$bounce.play()
 					$land.play()
-					$soupermodel/AnimationPlayer.stop()
-					$soupermodel/AnimationPlayer.play("jump")
+					rootanimator.stop()
+					rootanimator.play("jump")
 					state = states.normal
 					$crash.play()
 					camerashake(2, 0.1)
 					thing1()
+					thing2()
 		states.attackjump:
 			if key_run2:
-				$soupermodel/root/limb.playback_speed = 0.5
-				$soupermodel/root/limb.play("groundpoundprep")
-				#$soupermodel/AnimationPlayer.stop()
-				#$soupermodel/AnimationPlayer.play("actual jump")
+				modelanimator.playback_speed = 0.5
+				modelanimator.play("groundpoundprep")
+				#rootanimator.stop()
+				#rootanimator.play("actual jump")
 				$soupermodel/yea.play()
 				state = states.gp_prep
 				velocity.y = jumpheight * 2
-			$soupermodel/root/limb.playback_speed = 20
-			if $soupermodel/root/limb.current_animation != ("actual jump") and $soupermodel/root/limb.current_animation != ("groundpoundprep"):
-				$soupermodel/root/limb.play("spin")
+			modelanimator.playback_speed = 20
+			if modelanimator.current_animation != ("actual jump") and modelanimator.current_animation != ("groundpoundprep"):
+				modelanimator.play("spin")
 			snapvector = Vector3.UP
 			if not is_on_floor():
 				velocity.y -= gravity
 			if grounded:
-				$soupermodel/AnimationPlayer.stop()
-				$soupermodel/AnimationPlayer.play("jump")
+				rootanimator.stop()
+				rootanimator.play("jump")
 				$land.play()
 				velocity.y = 0
 				grounded = true
@@ -311,13 +323,13 @@ func _physics_process(delta):
 				velocity.y -= 10
 				
 		states.entercourse:
-			$soupermodel/root/limb.playback_speed = 15
-			$soupermodel/root/limb.play("spin")
+			modelanimator.playback_speed = 15
+			modelanimator.play("spin")
 			if not is_on_floor():
 				velocity.y -= gravity / 1.5
 			if grounded:
-				$soupermodel/AnimationPlayer.stop()
-				$soupermodel/AnimationPlayer.play("jump")
+				rootanimator.stop()
+				rootanimator.play("jump")
 				$land.play()
 				velocity.y = 0
 				grounded = true
