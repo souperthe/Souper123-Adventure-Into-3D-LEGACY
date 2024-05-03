@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/scripts/pause.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/sfx_scratch.wav" type="AudioStream" id=2]
@@ -6,13 +6,14 @@
 [ext_resource path="res://assets/images/select thing.png" type="Texture" id=4]
 [ext_resource path="res://assets/fonts/alphebet.tres" type="BitmapFont" id=5]
 [ext_resource path="res://addons/BitmapTextureFont/main.gd" type="Script" id=6]
+[ext_resource path="res://assets/sound/sfx_revout.wav" type="AudioStream" id=7]
 
 [sub_resource type="AudioStreamRandomPitch" id=4]
 audio_stream = ExtResource( 2 )
 
 [sub_resource type="BitmapFont" id=7]
 textures = [ ExtResource( 3 ) ]
-chars = PoolIntArray( 104, 0, 679, 0, 28, 42, 0, 0, 28, 120, 0, 339, 0, 37, 42, 0, 0, 37, 112, 0, 176, 0, 27, 42, 0, 0, 27, 105, 0, 971, 0, 31, 42, 0, 0, 31, 121, 0, 720, 0, 32, 42, 0, 0, 32, 97, 0, 422, 0, 38, 42, 0, 0, 38, 113, 0, 88, 0, 31, 42, 0, 0, 31, 122, 0, 762, 0, 31, 42, 0, 0, 31, 98, 0, 467, 0, 29, 42, 0, 0, 29, 114, 0, 385, 0, 30, 42, 0, 0, 30, 106, 0, 8, 0, 27, 42, 0, 0, 27, 107, 0, 846, 0, 32, 42, 0, 0, 32, 99, 0, 593, 0, 30, 42, 0, 0, 30, 115, 0, 258, 0, 29, 42, 0, 0, 29, 108, 0, 889, 0, 28, 42, 0, 0, 28, 100, 0, 637, 0, 31, 42, 0, 0, 31, 116, 0, 550, 0, 36, 42, 0, 0, 36, 101, 0, 1008, 0, 34, 42, 0, 0, 34, 109, 0, 801, 0, 36, 42, 0, 0, 36, 117, 0, 213, 0, 35, 42, 0, 0, 35, 102, 0, 1051, 0, 41, 42, 0, 0, 41, 110, 0, 509, 0, 31, 42, 0, 0, 31, 118, 0, 129, 0, 36, 42, 0, 0, 36, 103, 0, 928, 0, 35, 42, 0, 0, 35, 119, 0, 295, 0, 39, 42, 0, 0, 39, 111, 0, 48, 0, 28, 42, 0, 0, 28 )
+chars = PoolIntArray( 104, 0, 678, 0, 29, 42, 0, 0, 29, 120, 0, 338, 0, 38, 42, 0, 0, 38, 112, 0, 175, 0, 28, 42, 0, 0, 28, 105, 0, 971, 0, 32, 42, 0, 0, 32, 121, 0, 720, 0, 33, 42, 0, 0, 33, 97, 0, 421, 0, 39, 42, 0, 0, 39, 113, 0, 88, 0, 32, 42, 0, 0, 32, 122, 0, 761, 0, 33, 42, 0, 0, 33, 98, 0, 467, 0, 29, 42, 0, 0, 29, 114, 0, 385, 0, 31, 42, 0, 0, 31, 106, 0, 7, 0, 29, 42, 0, 0, 29, 107, 0, 846, 0, 32, 42, 0, 0, 32, 99, 0, 593, 0, 31, 42, 0, 0, 31, 115, 0, 258, 0, 29, 42, 0, 0, 29, 108, 0, 889, 0, 28, 42, 0, 0, 28, 100, 0, 636, 0, 33, 42, 0, 0, 33, 116, 0, 550, 0, 36, 42, 0, 0, 36, 101, 0, 1008, 0, 34, 42, 0, 0, 34, 109, 0, 800, 0, 37, 42, 0, 0, 37, 117, 0, 213, 0, 36, 42, 0, 0, 36, 102, 0, 1050, 0, 42, 42, 0, 0, 42, 110, 0, 509, 0, 32, 42, 0, 0, 32, 118, 0, 128, 0, 38, 42, 0, 0, 38, 103, 0, 927, 0, 36, 42, 0, 0, 36, 119, 0, 295, 0, 40, 42, 0, 0, 40, 111, 0, 47, 0, 30, 42, 0, 0, 30 )
 height = 42.0
 script = ExtResource( 6 )
 texture = ExtResource( 3 )
@@ -77,6 +78,7 @@ tracks/1/keys = {
 [node name="pause" type="Control"]
 pause_mode = 2
 physics_interpolation_mode = 1
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -89,6 +91,7 @@ color = Color( 0, 0, 0, 0.345098 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 4 )
 volume_db = -6.0
+bus = "SFX"
 
 [node name="mainstuff" type="Control" parent="."]
 anchor_left = 0.5
@@ -161,3 +164,8 @@ text = "exit"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/pause = SubResource( 5 )
 anims/unpause = SubResource( 6 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.0
+bus = "SFX"

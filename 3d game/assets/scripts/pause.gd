@@ -17,9 +17,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if paused:
-		pause()
+func _physics_process(delta):
 	$mainstuff/pointer.rect_position.y = selecthing.rect_position.y + 10
 	$mainstuff/pointer.rect_position.x = selecthing.rect_position.x + xoffset
 	match(selection):
@@ -46,10 +44,46 @@ func _process(delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			$AudioStreamPlayer.play()
 			$AnimationPlayer.play("unpause")
+	if paused:
+		pause()
 	pass
 	
+	
+
+	
 func pause():
-	if Input.is_action_just_pressed("player_up"):
+	if selection < 1:
+		selection = 4
+	if selection > 4:
 		selection = 1
-	if Input.is_action_just_pressed("player_down"):
-		selection = 2
+	if Input.is_action_just_pressed("ui_accept"):
+		match(selection):
+			1:
+				paused = false
+				visible = false
+				get_tree().paused = false
+				$AudioStreamPlayer2.play()
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			2:
+				get_tree().reload_current_scene()
+				global.reset()
+				paused = false
+				visible = false
+				get_tree().paused = false
+				$AudioStreamPlayer2.play()
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			3:
+				pass
+			4:
+				get_tree().change_scene("res://assets/scenes/title.tscn")
+				paused = false
+				visible = false
+				get_tree().paused = false
+				$AudioStreamPlayer2.play()
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if Input.is_action_just_pressed("player_up") or Input.is_action_just_pressed("ui_up"):
+		selection -= 1
+		$AudioStreamPlayer2.play()
+	if Input.is_action_just_pressed("player_down") or Input.is_action_just_pressed("ui_down"):
+		selection += 1
+		$AudioStreamPlayer2.play()

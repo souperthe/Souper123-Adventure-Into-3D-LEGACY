@@ -1,39 +1,49 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0003.png" type="Texture" id=1]
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0006.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0007.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0008.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0005.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0004.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0001.png" type="Texture" id=7]
-[ext_resource path="res://assets/images/animated/placeholder/collectablepizza_0002.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/animated/star/c4.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/animated/star/c1.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/animated/star/c3.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/animated/star/c2.png" type="Texture" id=4]
 [ext_resource path="res://assets/scripts/collectable.gd" type="Script" id=9]
+[ext_resource path="res://assets/images/shadow.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
-"speed": 16.0
+"speed": 12.0
 } ]
 
 [sub_resource type="SphereShape" id=2]
-radius = 0.5
+radius = 1.21638
 
 [node name="collectable" type="Area"]
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00666523, 0.509775, 0.0122241 )
-pixel_size = 0.03
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 billboard = 1
 frames = SubResource( 1 )
-frame = 7
+frame = 2
 playing = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948, 0 )
 shape = SubResource( 2 )
+
+[node name="SpringArm" type="SpringArm" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0 )
+collision_mask = 2
+spring_length = 100.0
+margin = 1.0
+
+[node name="Spatial" type="Spatial" parent="SpringArm"]
+
+[node name="shadow" type="Sprite3D" parent="SpringArm/Spatial"]
+transform = Transform( 0.7, 0, 0, 0, -0.7, 0, 0, 6.11959e-08, 0, -0.004, -0.022, 0.85 )
+opacity = 0.8
+pixel_size = 0.03
+texture = ExtResource( 10 )
 
 [connection signal="body_entered" from="." to="." method="_on_collectable_body_entered"]

@@ -67,7 +67,7 @@ current = true
 fov = 40.0
 size = 10.0
 near = 1.0
-far = 250.0
+far = 300.0
 
 [node name="shaketime" type="Timer" parent="camera/SpringArm/Camera"]
 one_shot = true
@@ -117,7 +117,7 @@ margin = 1.0
 [node name="Spatial" type="Spatial" parent="SpringArm"]
 
 [node name="shadow" type="Sprite3D" parent="SpringArm/Spatial"]
-transform = Transform( 0.7, 0, 0, 0, -0.7, 0, 0, 6.11959e-08, 0, -0.004, -0.022, 0.85 )
+transform = Transform( 0.7, 0, 0, 0, -0.7, 0, 0, 6.11959e-08, 0, 0, 0, 0.85 )
 opacity = 0.8
 pixel_size = 0.05
 texture = ExtResource( 2 )
