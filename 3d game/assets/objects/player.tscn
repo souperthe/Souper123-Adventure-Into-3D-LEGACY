@@ -38,6 +38,8 @@ audio_stream = ExtResource( 9 )
 audio_stream = ExtResource( 11 )
 
 [node name="player" type="KinematicBody"]
+pause_mode = 1
+physics_interpolation_mode = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

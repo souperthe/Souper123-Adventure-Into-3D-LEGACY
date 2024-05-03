@@ -1,0 +1,17 @@
+res://default_env.tres
+res://assets/scenes/title.tscn
+res://assets/scripts/player.gd
+res://assets/objects/playerhud.tscn
+res://assets/objects/HUD.tscn
+res://assets/scripts/DirectionalLight.gd
+res://assets/misc/DirectionalLight.tscn
+res://assets/objects/player.tscn
+res://assets/objects/soupermodel.tscn
+res://assets/objects/collide_block.tscn
+res://assets/mesh/f3dlite_material_009.material
+res://assets/objects/pause.tscn
+res://assets/scenes/test.tscn
+res://assets/misc/world_env.tres
+res://assets/mesh/f3dlite_material_007.material
+res://assets/mesh/f3dlite_material.material
+res://assets/mesh/f3dlite_material_004.material

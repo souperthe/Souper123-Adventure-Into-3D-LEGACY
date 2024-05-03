@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(delta):
-	$RichTextLabel.text = str("score: ", global.score)
+	#$RichTextLabel.text = str("score: ", global.score)
 	$RichTextLabel2.text = str("player state: ", state)
 	$RichTextLabel3.text = str("delta: ", delta)
 	$RichTextLabel4.text = str("player position: ", pos)
