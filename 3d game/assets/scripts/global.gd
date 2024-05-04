@@ -4,6 +4,7 @@ var score = 0
 var debug = true
 var player
 var lives = 2
+var music_index= AudioServer.get_bus_index("Music")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,6 +16,8 @@ func _ready():
 
 
 func reset():
+	AudioServer.set_bus_volume_db(music_index, 0)
+	music_controller.stopmusic()
 	score = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

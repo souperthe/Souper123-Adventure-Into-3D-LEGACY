@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/misc/world_env.tres" type="Environment" id=1]
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=2]
@@ -7,8 +7,10 @@
 [ext_resource path="res://assets/objects/collectable.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/objects/skybox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/objects/sign.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/scripts/bob.gd" type="Script" id=8]
 
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 8 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.7069, 31.1468, 38.4621 )

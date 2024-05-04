@@ -244,9 +244,9 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.6 ),
-"transitions": PoolRealArray( 0.217638, 1 ),
+"transitions": PoolRealArray( 0.517633, 1 ),
 "update": 0,
-"values": [ -180.0, 0.0 ]
+"values": [ -360.0, 0.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:visible")
@@ -319,7 +319,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 0.258816, 0.217638 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
@@ -331,10 +331,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 0.258816, 0.217638 ),
 "update": 0,
-"values": [ 0.0, -180.0 ]
+"values": [ 0.0, -360.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:visible")
@@ -343,7 +343,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -508,8 +508,6 @@ margin_bottom = 201.5
 margin_left = 12.0
 margin_right = 275.0
 margin_bottom = 180.0
-rect_rotation = -180.0
-rect_scale = Vector2( 1e-05, 1e-05 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Control"]
 margin_right = 264.0
@@ -524,7 +522,7 @@ margin_top = 3.0
 margin_right = -2.0
 margin_bottom = -17.0
 bbcode_text = "sample text"
-visible_characters = 4
+visible_characters = 0
 percent_visible = 0.444444
 text = "sample text"
 

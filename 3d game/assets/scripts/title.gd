@@ -8,6 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	music_controller.songplay("res://assets/sound/mu_titlebeat.ogg", false)
 	pass # Replace with function body.
 
 

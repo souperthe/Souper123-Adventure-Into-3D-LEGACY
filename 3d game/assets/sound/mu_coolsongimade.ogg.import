@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_coolsongimade.ogg-b5c5d91c63f5ea9d139ebf5327f540db.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/mu_coolsongimade.ogg"
+dest_files=[ "res://.import/mu_coolsongimade.ogg-b5c5d91c63f5ea9d139ebf5327f540db.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

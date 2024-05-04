@@ -11,6 +11,8 @@ var player
 var interacted = false
 var thing
 
+var music_index= AudioServer.get_bus_index("Music")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +42,7 @@ func _process(delta):
 				$AnimationPlayer.play("interact")
 				$AudioStreamPlayer2.play()
 				$AudioStreamPlayer3.play()
+				AudioServer.set_bus_volume_db(music_index, 0)
 		var thing = rotation.normalized() * 2
 		#player.translation.x = lerp(player.translation.x, self.global_translation.x, 5 * delta)
 		#player.translation.z = lerp(player.translation.z, self.global_translation.z, 5 * delta)
@@ -66,6 +69,7 @@ func _on_Area_body_entered(body):
 			interacted = true
 			$AudioStreamPlayer.play()
 			$CanvasLayer/AnimationPlayer.play("appear")
+			AudioServer.set_bus_volume_db(music_index, -15)
 			$AnimationPlayer.play("interact")
 			$CanvasLayer/Control/Control/RichTextLabel.visible_characters = 0
 			$CanvasLayer/Control/Control/RichTextLabel.bbcode_text = str(pagestext[pageon])

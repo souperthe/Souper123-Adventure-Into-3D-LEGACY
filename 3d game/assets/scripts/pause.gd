@@ -81,6 +81,7 @@ func pause():
 				get_tree().paused = false
 				$AudioStreamPlayer2.play()
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				global.reset()
 	if Input.is_action_just_pressed("player_up") or Input.is_action_just_pressed("ui_up"):
 		selection -= 1
 		$AudioStreamPlayer2.play()

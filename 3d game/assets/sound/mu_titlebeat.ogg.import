@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mu_titlebeat.ogg-57e617ff4db4297a6b4210aa6e777f1e.oggstr"
+
+[deps]
+
+source_file="res://assets/sound/mu_titlebeat.ogg"
+dest_files=[ "res://.import/mu_titlebeat.ogg-57e617ff4db4297a6b4210aa6e777f1e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

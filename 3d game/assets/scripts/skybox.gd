@@ -19,5 +19,5 @@ func _process(delta):
 	$Control/ParallaxBackground/ParallaxLayer/TextureRect.rect_size = OS.window_size
 	#$Control/TextureRect.material.set_shader_param(scale, 100)
 	$Control/ParallaxBackground.scroll_offset.x = realtarget.camera.rotation.y / 1.5
-	#$Control/ParallaxBackground.scroll_offset.y = realtarget.camera.rotation.x / 6
+	$Control/ParallaxBackground.scroll_offset.y = -realtarget.camera.rotation.z / 5
 	pass
