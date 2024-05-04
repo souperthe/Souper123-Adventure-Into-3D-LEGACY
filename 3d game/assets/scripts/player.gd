@@ -30,11 +30,13 @@ enum states{
 	wallbounce,
 	gp_prep,
 	attackjump,
-	entercourse
+	entercourse,
+	actor
 }
 var state = states.entercourse
 var dropshadow_distance = 0
 var walljumped = float(1.0)
+onready var cam = $camera/SpringArm/Camera
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -117,8 +119,14 @@ func _physics_process(delta):
 	grounded = is_on_floor()
 	var thing = 1.5 - (dropshadow_distance / 5)
 	var cameratwist = $camera.rotation.normalized()
-	$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
-	$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
+	if state != states.actor:
+		$camera/SpringArm/Camera.fov = 40
+		$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
+		$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
+		if Input.is_action_just_released("player_scrollup"):
+			$camera/SpringArm.spring_length -= 1
+		if Input.is_action_just_released("player_scrolldown"):
+			$camera/SpringArm.spring_length += 1
 	if is_on_floor():
 		velocity.y = 0
 	move_dir = Vector3(key_sright - key_sleft, 0, key_sdown - key_sup).normalized().rotated(Vector3.UP, $camera.rotation.y)
@@ -129,10 +137,6 @@ func _physics_process(delta):
 	var snapvector = Vector3.DOWN
 			# call the zoom function
 		# zoom out
-	if Input.is_action_just_released("player_scrollup"):
-		$camera/SpringArm.spring_length -= 1
-	if Input.is_action_just_released("player_scrolldown"):
-		$camera/SpringArm.spring_length += 1
 	if is_on_ceiling():
 		velocity.y -= 10
 		

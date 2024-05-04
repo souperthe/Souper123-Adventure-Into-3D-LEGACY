@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/misc/world_env.tres" type="Environment" id=1]
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/misc/DirectionalLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/misc/bobfixl.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/objects/collectable.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/objects/skybox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/objects/sign.tscn" type="PackedScene" id=7]
 
 [node name="Spatial" type="Spatial"]
 
@@ -44,3 +46,90 @@ transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2
 
 [node name="collectable8" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 29.8263, -14.088, 24.0269 )
+
+[node name="skybox" parent="." instance=ExtResource( 6 )]
+target = NodePath("../player")
+skytexture = "res://assets/misc/bobsky.png"
+
+[node name="sign" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.0157, -14.088, 9.25438 )
+pagestext = [ "welcome to bob omb battle feild!", "this map is originally from Super Mario 64, now it has been repurposed as a testing ground for Souper-123!", "i am also a sign, did you know that?" ]
+
+[node name="sign2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -181.194, 69.5991, -152.733 )
+__meta__ = {
+"_edit_group_": true
+}
+pagestext = [ "hello!", "i'm a sign on a mountain!", "did you know that?", "did you know that you are also playing a video game?", "pretty neat huh?" ]
+
+[node name="collectable9" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -181.2, 70, -139.3 )
+
+[node name="collectable10" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -181.2, 70, -166.3 )
+
+[node name="collectable11" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -167.7, 70, -152.8 )
+
+[node name="collectable12" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -194.7, 70, -152.8 )
+
+[node name="collectable13" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -168.16, 70, -149.306 )
+
+[node name="collectable14" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -194.24, 70, -156.294 )
+
+[node name="collectable15" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -169.509, 70, -146.05 )
+
+[node name="collectable16" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -192.891, 70, -159.55 )
+
+[node name="collectable17" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -171.654, 70, -143.254 )
+
+[node name="collectable18" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -190.746, 70, -162.346 )
+
+[node name="collectable19" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -174.45, 70, -141.109 )
+
+[node name="collectable20" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -187.95, 70, -164.491 )
+
+[node name="collectable21" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -177.706, 70, -139.76 )
+
+[node name="collectable22" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -184.694, 70, -165.84 )
+
+[node name="collectable23" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -184.694, 70, -139.76 )
+
+[node name="collectable24" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -177.706, 70, -165.84 )
+
+[node name="collectable25" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -187.95, 70, -141.109 )
+
+[node name="collectable26" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -174.45, 70, -164.491 )
+
+[node name="collectable27" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -190.746, 70, -143.254 )
+
+[node name="collectable28" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -171.654, 70, -162.346 )
+
+[node name="collectable29" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -192.891, 70, -146.05 )
+
+[node name="collectable30" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -169.509, 70, -159.55 )
+
+[node name="collectable31" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -194.24, 70, -149.306 )
+
+[node name="collectable32" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -168.16, 70, -156.294 )

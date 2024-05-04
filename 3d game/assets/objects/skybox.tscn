@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/images/bluesky.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/skybox.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 motion = vec2(0.0);
+uniform float scale = 1.0;
+uniform vec2 offset = vec2(0.0);
+
+void vertex(){
+	UV = (VERTEX + offset + TIME * motion) * TEXTURE_PIXEL_SIZE * (1.0/scale);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/motion = Vector2( 0, 0 )
+shader_param/scale = 5.0
+shader_param/offset = Vector2( 0, 0 )
+
+[node name="skybox" type="CanvasLayer"]
+layer = -10
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Control"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Control/ParallaxBackground"]
+motion_scale = Vector2( 640, 480 )
+motion_mirroring = Vector2( 640, 480 )
+
+[node name="TextureRect" type="TextureRect" parent="Control/ParallaxBackground/ParallaxLayer"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 640.0
+margin_bottom = 480.0
+texture = ExtResource( 1 )
+stretch_mode = 2

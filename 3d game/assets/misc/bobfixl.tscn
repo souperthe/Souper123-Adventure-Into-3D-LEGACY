@@ -428,6 +428,7 @@ surfaces/0 = {
 [sub_resource type="SpatialMaterial" id=52]
 resource_name = "Shape.064"
 flags_transparent = true
+params_cull_mode = 2
 params_depth_draw_mode = 3
 albedo_texture = ExtResource( 17 )
 

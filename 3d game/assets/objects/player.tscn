@@ -112,14 +112,14 @@ cast_to = Vector3( 0, -50, 0 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.2, 0 )
 collision_mask = 2
 spring_length = 100.0
-margin = 1.0
+margin = 0.95
 
 [node name="Spatial" type="Spatial" parent="SpringArm"]
 
 [node name="shadow" type="Sprite3D" parent="SpringArm/Spatial"]
 transform = Transform( 0.7, 0, 0, 0, -0.7, 0, 0, 6.11959e-08, 0, 0, 0, 0.85 )
 opacity = 0.8
-pixel_size = 0.05
+pixel_size = 0.06
 texture = ExtResource( 2 )
 
 [node name="bounce" type="AudioStreamPlayer3D" parent="."]
