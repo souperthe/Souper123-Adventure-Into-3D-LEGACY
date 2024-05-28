@@ -11,13 +11,15 @@ var thing = 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	translation = Vector3(0,0,0)
+	name = "Lighting"
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#look_at(realtarget.global_transform.origin, Vector3.UP)
-	translation = realtarget.translation
+	#translation = realtarget.translation
 	rotation = realtarget.camera.rotation
 	pass
 

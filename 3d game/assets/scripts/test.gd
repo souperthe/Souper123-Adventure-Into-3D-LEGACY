@@ -8,6 +8,8 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$collide_block2/AnimationPlayer.play("MOVE")
+	$collide_block4/AnimationPlayer.play("yea")
 	music_controller.stopmusic()
 	pass # Replace with function body.
 
