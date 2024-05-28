@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/objects/collide_block.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=2]
@@ -10,12 +10,12 @@
 [ext_resource path="res://assets/objects/sign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/scripts/test.gd" type="Script" id=9]
 
-[sub_resource type="PanoramaSky" id=1]
+[sub_resource type="PanoramaSky" id=5]
 panorama = ExtResource( 5 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
-background_sky = SubResource( 1 )
+background_sky = SubResource( 5 )
 background_color = Color( 0, 0, 0, 0.960784 )
 background_energy = 0.0
 ambient_light_color = Color( 1, 0.67451, 0.988235, 1 )
@@ -29,11 +29,45 @@ fog_depth_end = 500.0
 dof_blur_near_distance = 10.37
 adjustment_enabled = true
 
+[sub_resource type="Animation" id=3]
+resource_name = "MOVE"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9, 4 ),
+"transitions": PoolRealArray( 0.392292, 2.07053, 1 ),
+"update": 0,
+"values": [ Vector3( -17, -2, -86 ), Vector3( 35, -2, -86 ), Vector3( -17, -2, -86 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "yea"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 35, -2, -100 ), Vector3( 35, 66, -100 ), Vector3( 35, 66, -100 ), Vector3( 35, 66, -100 ) ]
+}
+
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 9 )
 
 [node name="DirectionalLight" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 20, 0 )
+transform = Transform( -1, 4.37114e-08, -7.57103e-08, 0, 0.866025, 0.5, 8.74228e-08, 0.5, -0.866025, 0, 28, -14 )
 target = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource( 2 )]
@@ -85,3 +119,26 @@ skytexture = "res://assets/images/test_sky.png"
 [node name="sign" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85881, 1.00008, 19.4088 )
 pagestext = [ "hello i'm a sign", "and you're a player", "yea", "sdasdsd", "dsfhsfsjfhkjfdhjkdsfkhjsdfjkhfsdhfjkhdkjfsfdshkjsdfkhj" ]
+
+[node name="collide_block" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -17, -2, -53 )
+
+[node name="collide_block2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 26.8483, -2, -86 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="collide_block2"]
+playback_speed = 0.5
+anims/MOVE = SubResource( 3 )
+
+[node name="collide_block3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 35, -2, -92 )
+
+[node name="collide_block4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 35, 48.8461, -100 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="collide_block4"]
+playback_speed = 0.5
+anims/yea = SubResource( 4 )
+
+[node name="collide_block5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 35, 66, -92 )
