@@ -135,3 +135,8 @@ transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -
 
 [node name="collectable32" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -168.16, 70, -156.294 )
+
+[node name="sign3" parent="." instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -48, 45, -181 )
+pagestext = [ "WOAH!", "how did you find me here?", "you must be some kind of wizard!", "would you like a disc?", "i dont really care just take it" ]
+givedisc = true

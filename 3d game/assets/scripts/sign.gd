@@ -6,6 +6,8 @@ extends Spatial
 # var b = "text"
 #export (int) var pages = 1
 export var pagestext = []
+export (bool) var givedisc 
+var givendisc = false
 var pageon = 0
 var player
 var interacted = false
@@ -36,6 +38,10 @@ func _process(delta):
 				$AnimationPlayer.play("interact")
 				$AudioStreamPlayer2.play()
 			if pageon == pagestext.size():
+				if givedisc:
+					givendisc = true
+					pagestext.clear()
+					pagestext.append("YOU ALREADY TOOK YOUR DISC!!!")
 				$CanvasLayer/AnimationPlayer.play("disapear")
 				player.state = player.states.normal
 				interacted = false

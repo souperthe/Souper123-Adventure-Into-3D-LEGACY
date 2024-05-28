@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/objects/collide_block.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/objects/skybox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/objects/sign.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/scripts/test.gd" type="Script" id=9]
+[ext_resource path="res://assets/objects/baddie.tscn" type="PackedScene" id=10]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 5 )
@@ -85,3 +86,6 @@ skytexture = "res://assets/images/test_sky.png"
 [node name="sign" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85881, 1.00008, 19.4088 )
 pagestext = [ "hello i'm a sign", "and you're a player", "yea", "sdasdsd", "dsfhsfsjfhkjfdhjkdsfkhjsdfjkhfsdhfjkhdkjfsfdshkjsdfkhj" ]
+
+[node name="baddie" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19285, 1.0001, 8.3214 )
