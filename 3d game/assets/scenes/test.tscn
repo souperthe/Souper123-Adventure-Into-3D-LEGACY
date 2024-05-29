@@ -12,12 +12,12 @@
 [ext_resource path="res://assets/objects/baddie.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/objects/PhysicsCollectable.tscn" type="PackedScene" id=11]
 
-[sub_resource type="PanoramaSky" id=1]
+[sub_resource type="PanoramaSky" id=3]
 panorama = ExtResource( 5 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
-background_sky = SubResource( 1 )
+background_sky = SubResource( 3 )
 background_color = Color( 0, 0, 0, 0.960784 )
 background_energy = 0.0
 ambient_light_color = Color( 1, 0.67451, 0.988235, 1 )
