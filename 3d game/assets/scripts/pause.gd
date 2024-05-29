@@ -52,6 +52,8 @@ func _physics_process(delta):
 
 	
 func pause():
+	#if Input.is_action_just_pressed("player_jump"):
+		#global.player.velocity.y = 100
 	if selection < 1:
 		selection = 4
 	if selection > 4:

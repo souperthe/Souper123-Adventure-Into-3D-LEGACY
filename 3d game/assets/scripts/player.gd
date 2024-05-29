@@ -3,6 +3,7 @@ extends KinematicBody
 
 var look_rot = Vector3.ZERO
 var camera_dir = 0
+var model_dir = 0
 var move_dir = Vector3.ZERO
 var velocity = Vector3.ZERO
 var mouse = Vector2()
@@ -31,7 +32,8 @@ enum states{
 	gp_prep,
 	attackjump,
 	entercourse,
-	actor
+	actor,
+	debug
 }
 var state = states.entercourse
 var dropshadow_distance = 0
@@ -81,21 +83,23 @@ func punch():
 	if attackcooldown < 0 and key_m12:
 		$attack.play()
 		attackcooldown = 8
-		$soupermodel.rotation.y = atan2(-camera_dir.x, -camera_dir.z)
+		#$soupermodel.rotation.y = atan2(-camera_dir.x, -camera_dir.z)
 		#velocity = (floor_checker.global_position - self_center.global_position).normalized() * jetpack_scala
 		state = states.punch
 		#rootanimator.play("attack")
 		if !is_on_floor():
 			punchtime = 0
+			$soupermodel.rotation.y = atan2(-camera_dir.x, -camera_dir.z)
 			velocity.z = camera_dir.z * 45
 			velocity.x = camera_dir.x * 45
 			velocity.y += jumpheight / 2
 			modelanimator.playback_speed = 1
 			modelanimator.play("dive")
 		if is_on_floor():
+			$soupermodel.rotation.y = atan2(-model_dir.x, -model_dir.z)
 			punchtime = 100
-			velocity.z = camera_dir.z * 20
-			velocity.x = camera_dir.x * 20
+			velocity.z = model_dir.z * 20
+			velocity.x = model_dir.x * 20
 			modelanimator.playback_speed = 8
 			modelanimator.play("punch")
 				#$soupermodel.rotation.y = $camera.rotation.y
@@ -111,7 +115,7 @@ func impact():
 
 
 func _physics_process(delta):
-	$soupermodel/AttackCheck/Attack1.disabled = !state == states.punch
+	$soupermodel/AttackCheck/Attack1.disabled = !state == states.punch and !state == states.debug
 	$soupermodel/AttackCheck/Attack2.disabled = !state == states.gp_prep
 	$HUD/hud/debughud.pos = str(self.translation)
 	$HUD/hud/debughud.state = state
@@ -142,6 +146,7 @@ func _physics_process(delta):
 		velocity.y = 0
 	move_dir = Vector3(key_sright - key_sleft, 0, key_sdown - key_sup).normalized().rotated(Vector3.UP, $camera.rotation.y)
 	camera_dir = -($camera.transform.basis.z).normalized()
+	model_dir = -(model.transform.basis.z).normalized()
 	var dir = $camera.transform.basis
 	var movex = float(move_dir.x)
 	var movez = float(move_dir.z)
@@ -356,6 +361,19 @@ func _physics_process(delta):
 				grounded = true
 				state = states.normal
 				velocity.y -= 10
+			#punch()
+		states.debug:
+			modelanimator.play("idle")
+			var amount = 35
+			velocity.x = movex * amount
+			velocity.z = movez * amount
+			snapvector = Vector3.UP
+			if key_jump:
+				velocity.y = amount
+			if key_run:
+				velocity.y = -amount
+			if !key_jump and !key_run:
+				velocity.y = 0
 			punch()
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
