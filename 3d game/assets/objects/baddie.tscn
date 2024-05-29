@@ -306,7 +306,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -15, 0, 14.976 ) ]
+"values": [ Vector3( -180, 0, 14.976 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("body:scale")
@@ -665,7 +665,7 @@ script = ExtResource( 1 )
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0 )
 
 [node name="body" type="Spatial" parent="model/root"]
-transform = Transform( 0.966034, -0.258414, 0, 0.249609, 0.933117, 0.258819, -0.0668826, -0.250028, 0.965926, 0, 1.66667, 0 )
+transform = Transform( 0.966034, -0.258414, 0, -0.258414, -0.966034, -8.74228e-08, 2.25913e-08, 8.44534e-08, -1, 0, 1.66667, 0 )
 
 [node name="Icosphere2" type="MeshInstance" parent="model/root/body"]
 transform = Transform( 1.3, 0, 0, 0, 1.2084, 2.11797e-07, 0, -1.96874e-07, 1.3, 0, 0.16358, 0 )

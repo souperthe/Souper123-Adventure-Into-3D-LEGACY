@@ -53,7 +53,8 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		look_rot.y -= (event.relative.x * 0.2)
 		look_rot.x -= (event.relative.y * 0.2)
-		look_rot.x = clamp(look_rot.x, minangle, maxangle)
+		#look_rot.x = clamp(look_rot.x, minangle, maxangle)
+		look_rot.x = -15
 		mouse = event.position
 		
 		
@@ -98,11 +99,20 @@ func punch():
 			modelanimator.playback_speed = 8
 			modelanimator.play("punch")
 				#$soupermodel.rotation.y = $camera.rotation.y
+				
+				
+func impact():
+	var whiteflash = preload("res://assets/objects/impact.tscn")
+	var ghost: Spatial = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.translation = self.translation
+	ghost.translation.y = self.translation.y + 1
 	
 
 
 func _physics_process(delta):
 	$soupermodel/AttackCheck/Attack1.disabled = !state == states.punch
+	$soupermodel/AttackCheck/Attack2.disabled = !state == states.gp_prep
 	$HUD/hud/debughud.pos = str(self.translation)
 	$HUD/hud/debughud.state = state
 	#print($camera/SpringArm/Camera/shaketime.time_left)
@@ -316,6 +326,12 @@ func _physics_process(delta):
 			if modelanimator.current_animation != ("actual jump") and modelanimator.current_animation != ("groundpoundprep"):
 				modelanimator.play("spin")
 			snapvector = Vector3.UP
+			if is_on_wall():
+				velocity.x = -velocity.x
+				velocity.z = -velocity.z
+				#velocity.y = 15
+				impact()
+				$wall.play()
 			if not is_on_floor():
 				velocity.y -= gravity
 			if grounded:
@@ -396,7 +412,7 @@ func _on_AttackCheck_body_entered(body):
 	if body is Baddie:
 		#body.queue_free()
 		var flungvelocity = velocity.normalized()
-		var amount = 20
+		var amount = 25
 		body.velocity.x = flungvelocity.x * amount
 		body.velocity.z = flungvelocity.z * amount
 		body.model.look_at(self.translation, Vector3.UP)

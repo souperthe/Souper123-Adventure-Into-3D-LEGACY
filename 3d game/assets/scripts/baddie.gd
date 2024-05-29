@@ -50,6 +50,13 @@ func punchsfx():
 	get_tree().get_current_scene().add_child(ghost)
 	ghost.translation = self.translation
 	ghost.sound()
+	
+func funnysfx():
+	var whiteflash = preload("res://assets/objects/funnynoise.tscn")
+	var ghost: Spatial = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.translation = self.translation
+	ghost.sound()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -74,7 +81,14 @@ func _process(delta):
 		states.dead:
 			velocity.y -= gravity
 			snapvector = Vector3.UP
+			#$model.rotation.x += 0.5
 			animator.play("kill")
+			if is_on_wall():
+				velocity.x = -velocity.x
+				velocity.z = -velocity.z
+				impact()
+				punchsfx()
+				funnysfx()
 			if is_on_floor():
 				destroy()
 #	pass
