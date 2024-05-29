@@ -20,6 +20,8 @@ var doland = false
 var punchtime = 60
 var jumps = float(1)
 var attackcooldown = 10
+var lastfloor = Vector3()
+var distancefromlastfloor = 0
 var shakeamount = 1
 onready var rootanimator = $soupermodel/AnimationPlayer
 onready var modelanimator = $soupermodel/root/limb
@@ -136,14 +138,24 @@ func _physics_process(delta):
 	var cameratwist = $camera.rotation.normalized()
 	if state != states.actor:
 		$camera/SpringArm/Camera.fov = 40
-		$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
-		$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
+		#$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
+		#$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
+		var distance = -15 + (distancefromlastfloor / 2)
+		var distance2 =  (distancefromlastfloor / 15)
+		$camera.rotation_degrees.x =  lerp($camera.rotation_degrees.x, distance, 5 * delta)
+		$camera.translation.y = 2 - distance2
 		if Input.is_action_just_released("player_scrollup"):
 			$camera/SpringArm.spring_length -= 1
 		if Input.is_action_just_released("player_scrolldown"):
 			$camera/SpringArm.spring_length += 1
+		if key_cameral:
+			$camera.rotation_degrees.y += 5
+		if key_camerar:
+			$camera.rotation_degrees.y -= 5
 	if is_on_floor():
 		velocity.y = 0
+		lastfloor = global_translation
+	distancefromlastfloor = lastfloor.distance_to(translation)
 	move_dir = Vector3(key_sright - key_sleft, 0, key_sdown - key_sup).normalized().rotated(Vector3.UP, $camera.rotation.y)
 	camera_dir = -($camera.transform.basis.z).normalized()
 	model_dir = -(model.transform.basis.z).normalized()
@@ -406,6 +418,10 @@ var key_sleft = 0
 var key_sright = 0
 var key_sup = 0
 var key_sdown = 0
+var key_cameral = 0
+var key_justcameral = 0
+var key_camerar = 0
+var key_justcamerar = 0
 
 func get_inputs():
 	key_left = Input.is_action_pressed("player_left")
@@ -424,6 +440,10 @@ func get_inputs():
 	key_sright = Input.get_action_strength("player_right")
 	key_sup = Input.get_action_strength("player_up")
 	key_sdown = Input.get_action_strength("player_down")
+	key_cameral = Input.is_action_pressed("player_cameraleft")
+	key_justcameral = Input.is_action_just_pressed("player_cameraleft")
+	key_camerar = Input.is_action_pressed("player_cameraright")
+	key_justcamerar = Input.is_action_just_pressed("player_cameraright")
 
 
 func _on_AttackCheck_body_entered(body):
