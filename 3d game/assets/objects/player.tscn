@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/shadow.png" type="Texture" id=2]
@@ -24,6 +24,9 @@ length = 2.0
 
 [sub_resource type="AudioStreamRandomPitch" id=4]
 audio_stream = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.717601, 0.797754, 0.779557 )
 
 [sub_resource type="AudioStreamRandomPitch" id=8]
 audio_stream = ExtResource( 7 )
@@ -105,6 +108,14 @@ layer = 3
 
 [node name="soupermodel" parent="." instance=ExtResource( 6 )]
 
+[node name="AttackCheck" type="Area" parent="soupermodel"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Attack1" type="CollisionShape" parent="soupermodel/AttackCheck"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.865929, -0.998952 )
+shape = SubResource( 10 )
+
 [node name="RayCast" type="RayCast" parent="."]
 cast_to = Vector3( 0, -50, 0 )
 
@@ -151,3 +162,5 @@ unit_size = 10.0
 bus = "SFX"
 attenuation_filter_cutoff_hz = 1.0
 attenuation_filter_db = 0.0
+
+[connection signal="body_entered" from="soupermodel/AttackCheck" to="." method="_on_AttackCheck_body_entered"]

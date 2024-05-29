@@ -102,6 +102,7 @@ func punch():
 
 
 func _physics_process(delta):
+	$soupermodel/AttackCheck/Attack1.disabled = !state == states.punch
 	$HUD/hud/debughud.pos = str(self.translation)
 	$HUD/hud/debughud.state = state
 	#print($camera/SpringArm/Camera/shaketime.time_left)
@@ -389,3 +390,15 @@ func get_inputs():
 	key_sright = Input.get_action_strength("player_right")
 	key_sup = Input.get_action_strength("player_up")
 	key_sdown = Input.get_action_strength("player_down")
+
+
+func _on_AttackCheck_body_entered(body):
+	if body is Baddie:
+		#body.queue_free()
+		var flungvelocity = velocity.normalized()
+		var amount = 10
+		body.velocity.x = flungvelocity.x * amount
+		body.velocity.z = flungvelocity.z * amount
+		body.model.look_at(self.translation, Vector3.UP)
+		body.hurt()
+	pass # Replace with function body.

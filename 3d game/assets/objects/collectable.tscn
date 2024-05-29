@@ -25,6 +25,7 @@ script = ExtResource( 9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 billboard = 1
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

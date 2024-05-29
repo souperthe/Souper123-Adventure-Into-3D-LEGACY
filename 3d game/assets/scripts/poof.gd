@@ -8,12 +8,19 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$collide_block2/AnimationPlayer.play("MOVE")
-	#$collide_block4/AnimationPlayer.play("yea")
-	music_controller.stopmusic()
+	$AnimatedSprite3D.play("default")
+	$AnimatedSprite3D.frame = 0
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_AnimatedSprite3D_animation_finished():
+	queue_free()
+	pass # Replace with function body.
+	
+func sound():
+	$AudioStreamPlayer3D.play()
