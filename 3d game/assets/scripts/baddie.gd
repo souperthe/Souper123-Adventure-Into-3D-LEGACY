@@ -25,17 +25,31 @@ func poof():
 	ghost.translation = self.translation
 	ghost.sound()
 	ghost.translation.y = self.translation.y + 1
+	
+func impact():
+	var whiteflash = preload("res://assets/objects/impact.tscn")
+	var ghost: Spatial = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.translation = self.translation
+	ghost.translation.y = self.translation.y + 1
 
 func createcoin():
 	var whiteflash = preload("res://assets/objects/PhysicsCollectable.tscn")
 	var ghost: Spatial = whiteflash.instance()
 	get_tree().get_current_scene().add_child(ghost)
-	ghost.velocity.y = 5
+	ghost.velocity.y = 8
 	ghost.velocity.x = rand_range(5,-5)
 	ghost.velocity.z = rand_range(5,-5)
 	randomize()
 	ghost.translation = self.translation
 	ghost.translation.y = self.translation.y + 1
+	
+func punchsfx():
+	var whiteflash = preload("res://assets/objects/punchsfx.tscn")
+	var ghost: Spatial = whiteflash.instance()
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.translation = self.translation
+	ghost.sound()
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -51,6 +65,10 @@ func _process(delta):
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 	match(state):
 		states.normal:
+			if !is_on_floor():
+				velocity.y -= gravity
+			if is_on_floor():
+				velocity.y = 0
 			snapvector = Vector3.DOWN
 			animator.play("walk")
 		states.dead:
@@ -63,6 +81,9 @@ func _process(delta):
 
 func hurt():
 	if !state == states.dead:
+		translation.y += 1
+		impact()
+		punchsfx()
 		velocity.y = 15
 		state = states.dead
 	#queue_free()

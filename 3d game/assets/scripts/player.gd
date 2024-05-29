@@ -396,7 +396,7 @@ func _on_AttackCheck_body_entered(body):
 	if body is Baddie:
 		#body.queue_free()
 		var flungvelocity = velocity.normalized()
-		var amount = 10
+		var amount = 20
 		body.velocity.x = flungvelocity.x * amount
 		body.velocity.z = flungvelocity.z * amount
 		body.model.look_at(self.translation, Vector3.UP)

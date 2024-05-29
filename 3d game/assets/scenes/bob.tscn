@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/misc/world_env.tres" type="Environment" id=1]
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/objects/skybox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/objects/sign.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/scripts/bob.gd" type="Script" id=8]
+[ext_resource path="res://assets/objects/baddie.tscn" type="PackedScene" id=9]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 8 )
@@ -140,3 +141,18 @@ transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -48, 45, -181 )
 pagestext = [ "WOAH!", "how did you find me here?", "you must be some kind of wizard!", "would you like a disc?", "i dont really care just take it" ]
 givedisc = true
+
+[node name="baddie" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2881, 1.52871, -122.097 )
+
+[node name="baddie2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2504, -16.488, -102.339 )
+
+[node name="baddie3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.283, 3.88905, -136.813 )
+
+[node name="baddie4" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1782, 4.23729, -148.847 )
+
+[node name="baddie5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5919, 3.9243, -152.556 )
