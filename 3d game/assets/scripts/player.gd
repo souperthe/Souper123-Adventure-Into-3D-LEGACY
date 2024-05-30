@@ -134,24 +134,24 @@ func _physics_process(delta):
 	#$dropshadow.translation = translation
 	get_inputs()
 	grounded = is_on_floor()
-	var thing = 1.5 - (dropshadow_distance / 5)
+	var thing = 1.5 - (dropshadow_distance / 4)
 	var cameratwist = $camera.rotation.normalized()
 	if state != states.actor:
 		$camera/SpringArm/Camera.fov = 40
-		#$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
+		$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
 		#$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
 		var distance = -15 + (distancefromlastfloor / 2)
-		var distance2 =  (distancefromlastfloor / 15)
+		var distance2 =  (distancefromlastfloor / 13)
 		$camera.rotation_degrees.x =  lerp($camera.rotation_degrees.x, distance, 5 * delta)
-		$camera.translation.y = 2 - distance2
+		$camera.translation.y = lerp($camera.translation.y, 2 - distance2, 2 * delta)
 		if Input.is_action_just_released("player_scrollup"):
 			$camera/SpringArm.spring_length -= 1
 		if Input.is_action_just_released("player_scrolldown"):
 			$camera/SpringArm.spring_length += 1
-		if key_cameral:
-			$camera.rotation_degrees.y += 5
-		if key_camerar:
-			$camera.rotation_degrees.y -= 5
+		#if key_cameral:
+			#$camera.rotation_degrees.y += 5
+		#if key_camerar:
+			#$camera.rotation_degrees.y -= 5
 	if is_on_floor():
 		velocity.y = 0
 		lastfloor = global_translation

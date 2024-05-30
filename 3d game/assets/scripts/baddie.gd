@@ -86,6 +86,7 @@ func _process(delta):
 			if is_on_wall():
 				velocity.x = -velocity.x
 				velocity.z = -velocity.z
+				velocity.y += 10
 				impact()
 				punchsfx()
 				funnysfx()
