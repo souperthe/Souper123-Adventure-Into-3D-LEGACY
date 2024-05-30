@@ -141,8 +141,8 @@ func _physics_process(delta):
 		$camera/SpringArm/Camera.fov = 40
 		$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
 		#$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
-		var distance = -15 + (distancefromlastfloor / 2)
-		var distance2 =  (distancefromlastfloor / 13)
+		var distance = -15 + clamp((distancefromlastfloor / 5), -30, 30)
+		var distance2 =  clamp((distancefromlastfloor / 13), -1, 1)
 		$camera.rotation_degrees.x =  lerp($camera.rotation_degrees.x, distance, 5 * delta)
 		$camera.translation.y = lerp($camera.translation.y, 2 - distance2, 2 * delta)
 		if Input.is_action_just_released("player_scrollup"):
@@ -299,7 +299,7 @@ func _physics_process(delta):
 				if modelanimator.current_animation == ("dive"):
 					state = states.roll
 					rootanimator.play("nojumpland")
-					$wall.play()
+					$land.play()
 				else:
 					state = states.normal
 				#velocity.y = 0
@@ -365,6 +365,7 @@ func _physics_process(delta):
 				grounded = true
 				state = states.normal
 				velocity.y -= 10
+			punch()
 				
 		states.entercourse:
 			modelanimator.playback_speed = 15
@@ -397,7 +398,7 @@ func _physics_process(delta):
 			snapvector = Vector3.DOWN
 			modelanimator.playback_speed = 15
 			modelanimator.play("slide")
-			punch()
+			#unch()
 			velocity.z = model_dir.z * 45
 			velocity.x = model_dir.x * 45
 			if key_jump:
@@ -408,6 +409,9 @@ func _physics_process(delta):
 				state = states.jump
 				#velocity.y -= gravity
 			if is_on_wall():
+				impact()
+				funnysfx()
+				$wall.play()
 				state = states.normal
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
