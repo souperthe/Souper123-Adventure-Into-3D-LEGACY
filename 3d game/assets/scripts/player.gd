@@ -298,6 +298,8 @@ func _physics_process(delta):
 			if grounded and !punchtime > 0:
 				if modelanimator.current_animation == ("dive"):
 					state = states.roll
+					rootanimator.play("nojumpland")
+					$wall.play()
 				else:
 					state = states.normal
 				#velocity.y = 0
@@ -392,8 +394,21 @@ func _physics_process(delta):
 				velocity.y = 0
 			punch()
 		states.roll:
+			snapvector = Vector3.DOWN
 			modelanimator.playback_speed = 15
-			modelanimator.play("roll")
+			modelanimator.play("slide")
+			punch()
+			velocity.z = model_dir.z * 45
+			velocity.x = model_dir.x * 45
+			if key_jump:
+				velocity.y = 50
+				state = states.attackjump
+				translation.y += 1
+			if not is_on_floor():
+				state = states.jump
+				#velocity.y -= gravity
+			if is_on_wall():
+				state = states.normal
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
 			
