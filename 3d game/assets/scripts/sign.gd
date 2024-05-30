@@ -55,6 +55,7 @@ func _process(delta):
 		player.translation.y = lerp(player.translation.y, self.global_translation.y, 5 * delta)
 		player.camera.rotation.x = lerp(player.camera.rotation.x, player.model.rotation.x, 5 * delta)
 		player.camera.rotation.z = lerp(player.camera.rotation.z, player.model.rotation.z, 5 * delta)
+		#player.camera.rotation.x = 5
 		#player.camera.rotation.y = lerp(player.camera.rotation.y, thing, 5 * delta)
 		player.cam.fov = lerp(player.cam.fov, 25, 5 * delta)
 		player.model.look_at(self.global_transform.origin, Vector3.UP)

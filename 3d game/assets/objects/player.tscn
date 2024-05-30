@@ -60,6 +60,7 @@ material = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, 2, 0.019 )
 
 [node name="SpringArm" type="SpringArm" parent="camera"]
+collision_mask = 2
 spring_length = 25.0
 margin = 1.0
 

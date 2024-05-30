@@ -2,8 +2,8 @@ class_name Player
 extends KinematicBody
 
 var look_rot = Vector3.ZERO
-var camera_dir = 0
-var model_dir = 0
+var camera_dir = Vector3()
+var model_dir = Vector3()
 var move_dir = Vector3.ZERO
 var velocity = Vector3.ZERO
 var mouse = Vector2()
@@ -119,7 +119,7 @@ func impact():
 
 func _physics_process(delta):
 	$soupermodel/AttackCheck/Attack1.disabled = !state == states.punch and !state == states.debug
-	$soupermodel/AttackCheck/Attack2.disabled = !state == states.gp_prep
+	$soupermodel/AttackCheck/Attack2.disabled = !state == states.gp_prep and !state == states.wallbounce and !states.jump
 	$HUD/hud/debughud.pos = str(self.translation)
 	$HUD/hud/debughud.state = state
 	#print($camera/SpringArm/Camera/shaketime.time_left)
@@ -141,17 +141,21 @@ func _physics_process(delta):
 		$camera/SpringArm/Camera.fov = 40
 		$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
 		#$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
-		var distance = -15 + clamp((distancefromlastfloor / 5), -30, 30)
+		var distance = -15 - clamp((distancefromlastfloor / 5), -30, 30)
 		var distance2 =  clamp((distancefromlastfloor / 13), -1, 1)
 		$camera.rotation_degrees.x =  lerp($camera.rotation_degrees.x, distance, 5 * delta)
 		$camera.translation.y = lerp($camera.translation.y, 2 - distance2, 2 * delta)
+		$camera.translation.x = camera_dir.x * 2
+		$camera.translation.z = camera_dir.z * 3
 		if Input.is_action_just_released("player_scrollup"):
 			$camera/SpringArm.spring_length -= 1
 		if Input.is_action_just_released("player_scrolldown"):
 			$camera/SpringArm.spring_length += 1
-		#if key_cameral:
+		if key_cameral:
+			look_rot.y -= 4
 			#$camera.rotation_degrees.y += 5
-		#if key_camerar:
+		if key_camerar:
+			look_rot.y += 4
 			#$camera.rotation_degrees.y -= 5
 	if is_on_floor():
 		velocity.y = 0
@@ -265,8 +269,8 @@ func _physics_process(delta):
 			if grounded and key_jump2:
 				state = states.attackjump
 				velocity.y = jumpheight
-				velocity.z = camera_dir.z * 35
-				velocity.x = camera_dir.x * 35
+				velocity.z = model_dir.z * 35
+				velocity.x = model_dir.x * 35
 			if grounded:
 				snapvector = Vector3.DOWN
 			if !grounded:
@@ -481,4 +485,11 @@ func _on_AttackCheck_body_entered(body):
 		body.velocity.z = flungvelocity.z * amount
 		body.model.look_at(self.translation, Vector3.UP)
 		body.hurt()
+		match(state):
+			states.wallbounce:
+				velocity.y = 50
+				impact()
+				$jump.play()
+			states.jump:
+				velocity.y = 800000000
 	pass # Replace with function body.
