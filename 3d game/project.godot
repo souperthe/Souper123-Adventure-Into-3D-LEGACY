@@ -49,6 +49,8 @@ music_controller="*res://assets/objects/musiccontroller.tscn"
 
 window/size/width=640
 window/size/height=480
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -58,7 +60,7 @@ version_control_autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/BitmapTextureFont/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/BitmapTextureFont/plugin.cfg", "res://addons/blender_importer/plugin.cfg" )
 
 [gui]
 

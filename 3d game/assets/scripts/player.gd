@@ -35,7 +35,8 @@ enum states{
 	attackjump,
 	entercourse,
 	actor,
-	debug
+	debug,
+	roll
 }
 var state = states.entercourse
 var dropshadow_distance = 0
@@ -295,7 +296,10 @@ func _physics_process(delta):
 			snapvector = Vector3.UP
 			punchtime -= 300 * delta
 			if grounded and !punchtime > 0:
-				state = states.normal
+				if modelanimator.current_animation == ("dive"):
+					state = states.roll
+				else:
+					state = states.normal
 				#velocity.y = 0
 				#velocity.z = 0
 				#velocity.x = 0
@@ -387,6 +391,9 @@ func _physics_process(delta):
 			if !key_jump and !key_run:
 				velocity.y = 0
 			punch()
+		states.roll:
+			modelanimator.playback_speed = 15
+			modelanimator.play("roll")
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
 			

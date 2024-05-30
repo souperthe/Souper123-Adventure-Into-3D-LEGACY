@@ -12,6 +12,8 @@ var music_index= AudioServer.get_bus_index("Music")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	OS.center_window()
+	get_viewport().transparent_bg = true
 	pass # Replace with function body.
 
 
