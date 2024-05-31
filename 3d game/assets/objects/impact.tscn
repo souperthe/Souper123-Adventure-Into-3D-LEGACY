@@ -19,6 +19,7 @@ script = ExtResource( 1 )
 pixel_size = 0.12
 billboard = 1
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_AnimatedSprite3D_animation_finished"]

@@ -36,7 +36,8 @@ enum states{
 	entercourse,
 	actor,
 	debug,
-	roll
+	roll,
+	bump
 }
 var state = states.entercourse
 var dropshadow_distance = 0
@@ -302,7 +303,7 @@ func _physics_process(delta):
 			if grounded and !punchtime > 0:
 				if modelanimator.current_animation == ("dive"):
 					state = states.roll
-					rootanimator.play("nojumpland")
+					rootanimator.play("jump")
 					$land.play()
 				else:
 					state = states.normal
@@ -416,6 +417,19 @@ func _physics_process(delta):
 				impact()
 				funnysfx()
 				$wall.play()
+				state = states.bump
+				velocity.y = 30
+				translation.y += 1
+				velocity.x = -velocity.x
+				velocity.z = -velocity.z
+		states.bump:
+			modelanimator.play("bump")
+			snapvector = Vector3.UP
+			velocity.x = lerp(velocity.x, 0, 5 * delta)
+			velocity.z = lerp(velocity.z, 0, 5 * delta)
+			if not is_on_floor():
+				velocity.y -= gravity
+			if is_on_floor():
 				state = states.normal
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
