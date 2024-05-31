@@ -303,6 +303,8 @@ func _physics_process(delta):
 			if grounded and !punchtime > 0:
 				if modelanimator.current_animation == ("dive"):
 					state = states.roll
+					velocity.z = model_dir.z * 45
+					velocity.x = model_dir.x * 45
 					rootanimator.play("jump")
 					$land.play()
 				else:
@@ -354,6 +356,7 @@ func _physics_process(delta):
 			if modelanimator.current_animation != ("actual jump") and modelanimator.current_animation != ("groundpoundprep"):
 				modelanimator.play("spin")
 			snapvector = Vector3.UP
+			punch()
 			if is_on_wall():
 				velocity.x = -velocity.x
 				velocity.z = -velocity.z
@@ -370,7 +373,7 @@ func _physics_process(delta):
 				grounded = true
 				state = states.normal
 				velocity.y -= 10
-			punch()
+		
 				
 		states.entercourse:
 			modelanimator.playback_speed = 15
@@ -400,22 +403,24 @@ func _physics_process(delta):
 				velocity.y = 0
 			punch()
 		states.roll:
-			snapvector = Vector3.DOWN
+			snapvector = Vector3.ZERO
 			modelanimator.playback_speed = 15
 			modelanimator.play("slide")
 			#unch()
-			velocity.z = model_dir.z * 45
-			velocity.x = model_dir.x * 45
+			if key_down:
+				velocity.x = lerp(velocity.x, 0, 2 * delta)
+				velocity.z = lerp(velocity.z, 0, 2 * delta)
 			if key_jump:
 				velocity.y = 50
 				state = states.attackjump
 				translation.y += 1
 			if not is_on_floor():
-				state = states.jump
-				#velocity.y -= gravity
+				#state = states.jump
+				velocity.y -= gravity
 			if is_on_wall():
 				impact()
 				funnysfx()
+				$crash.play()
 				$wall.play()
 				state = states.bump
 				velocity.y = 30
@@ -423,7 +428,9 @@ func _physics_process(delta):
 				velocity.x = -velocity.x
 				velocity.z = -velocity.z
 		states.bump:
-			modelanimator.play("bump")
+			modelanimator.playback_speed = 10
+			if !modelanimator.current_animation == "bunp":
+				modelanimator.play("bump")
 			snapvector = Vector3.UP
 			velocity.x = lerp(velocity.x, 0, 5 * delta)
 			velocity.z = lerp(velocity.z, 0, 5 * delta)
