@@ -18,10 +18,17 @@ func _ready():
 
 
 func _on_Button2_pressed():
-	get_tree().change_scene("res://assets/scenes/bob.tscn")
+	#get_tree().change_scene("res://assets/scenes/bob.tscn")
+	$CanvasLayer/Control/FileDialog.popup()
 	pass # Replace with function body.
 
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://assets/scenes/test.tscn")
+	pass # Replace with function body.
+
+
+func _on_FileDialog_file_selected(path):
+	get_tree().change_scene(path)
+	music_controller.stopmusic()
 	pass # Replace with function body.
