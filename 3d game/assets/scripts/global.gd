@@ -14,6 +14,7 @@ var music_index= AudioServer.get_bus_index("Music")
 func _ready():
 	OS.center_window()
 	get_viewport().transparent_bg = true
+	#Engine.target_fps = 30
 	pass # Replace with function body.
 
 

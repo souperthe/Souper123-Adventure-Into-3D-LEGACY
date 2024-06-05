@@ -498,16 +498,20 @@ bus = "SFX"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-margin_top = -67.5
-margin_right = 492.0
-margin_bottom = 201.5
+margin_left = -246.0
+margin_top = -134.5
+margin_right = 246.0
+margin_bottom = 134.5
 
 [node name="Control" type="Control" parent="CanvasLayer/Control"]
-margin_left = 12.0
-margin_right = 275.0
-margin_bottom = 180.0
+margin_left = -44.0
+margin_top = 48.0
+margin_right = 219.0
+margin_bottom = 228.0
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/Control"]
 margin_right = 264.0

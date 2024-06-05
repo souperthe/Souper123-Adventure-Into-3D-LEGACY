@@ -142,12 +142,13 @@ func _physics_process(delta):
 		$camera/SpringArm/Camera.fov = 40
 		$camera.rotation_degrees.y = lerp($camera.rotation_degrees.y, look_rot.y, 15 * delta)
 		#$camera.rotation_degrees.x = lerp($camera.rotation_degrees.x, look_rot.x, 15 * delta)
-		var distance = -15 - clamp((distancefromlastfloor / 5), -30, 30)
-		var distance2 =  clamp((distancefromlastfloor / 13), -2, 2)
+		var distance = -15 - clamp((distancefromlastfloor / 1.5), -30, 30)
+		var distance2 =  clamp((distancefromlastfloor / 10), -2, 2) * 2
 		var distance3 = lastfloor - translation
 		$camera.rotation_degrees.x =  lerp($camera.rotation_degrees.x, distance, 5 * delta)
-		#$camera.translation.y = lerp($camera.translation.y, 1.5 - distance2, 2 * delta)
-		$camera.translation.y = distance3.y + 2
+		$camera.translation.y = lerp($camera.translation.y, 1.5 - distance2, 2 * delta)
+		$camera/SpringArm.margin = -$camera/SpringArm.spring_length
+		#$camera.translation.y = distance3.y + 2
 		$camera.translation.x = camera_dir.x * 2
 		$camera.translation.z = camera_dir.z * 3
 		if Input.is_action_just_released("player_scrollup"):

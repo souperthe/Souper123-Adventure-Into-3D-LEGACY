@@ -8,6 +8,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$CanvasLayer/Control/FileDialog.current_path = "res://assets/scenes"
 	music_controller.songplay("res://assets/sound/mu_titlebeat.ogg", false)
 	pass # Replace with function body.
 
