@@ -30,7 +30,7 @@ margin_top = 41.0
 margin_right = 536.0
 margin_bottom = 378.0
 rect_min_size = Vector2( 150, 52.5 )
-window_title = "Select Scene"
+window_title = "Open a File"
 mode = 0
 
 [connection signal="pressed" from="CanvasLayer/Control/Button2" to="." method="_on_Button2_pressed"]
