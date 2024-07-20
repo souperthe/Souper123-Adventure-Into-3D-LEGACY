@@ -1,4 +1,4 @@
-extends Spatial
+extends Area
 
 
 # Declare member variables here. Examples:
@@ -8,18 +8,9 @@ extends Spatial
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$collide_block2/AnimationPlayer.play("MOVE")
-	#$collide_block4/AnimationPlayer.play("yea")
-	music_controller.stopmusic()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_water_body_entered(body):
-	if body is Player:
-		body.state = body.states.swim
-	pass # Replace with function body.

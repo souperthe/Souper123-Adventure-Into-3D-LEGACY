@@ -37,7 +37,8 @@ enum states{
 	actor,
 	debug,
 	roll,
-	bump
+	bump,
+	swim
 }
 var state = states.entercourse
 var dropshadow_distance = 0
@@ -409,10 +410,8 @@ func _physics_process(delta):
 			snapvector = Vector3.ZERO
 			modelanimator.playback_speed = 15
 			modelanimator.play("slide")
-			#unch()
-			if key_down:
-				velocity.x = lerp(velocity.x, 0, 2 * delta)
-				velocity.z = lerp(velocity.z, 0, 2 * delta)
+			velocity.x = lerp(velocity.x, 0, 2 * delta)
+			velocity.z = lerp(velocity.z, 0, 2 * delta)
 			if key_jump:
 				velocity.y = 50
 				state = states.attackjump
@@ -441,6 +440,10 @@ func _physics_process(delta):
 				velocity.y -= gravity
 			if is_on_floor():
 				state = states.normal
+		states.swim:
+			velocity.x = lerp(velocity.x, 0, 8 * delta)
+			velocity.z = lerp(velocity.z, 0, 8 * delta)
+			velocity.y = lerp(velocity.y, 0, 8 * delta)
 	move_and_slide_with_snap(velocity, snapvector, Vector3.UP, true)
 				
 			
@@ -501,7 +504,7 @@ func get_inputs():
 
 
 func _on_AttackCheck_body_entered(body):
-	if body is Baddie:
+	if body is Baddie and (state == states.punch):
 		#body.queue_free()
 		var flungvelocity = velocity.normalized()
 		var amount = 25
