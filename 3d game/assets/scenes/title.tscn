@@ -22,7 +22,7 @@ margin_left = 176.0
 margin_top = 372.0
 margin_right = 438.0
 margin_bottom = 417.0
-text = "select scene"
+text = "go to scene"
 
 [node name="FileDialog" type="FileDialog" parent="CanvasLayer/Control"]
 margin_left = 73.0
@@ -32,6 +32,18 @@ margin_bottom = 378.0
 rect_min_size = Vector2( 150, 52.5 )
 window_title = "Open a File"
 mode = 0
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/Control"]
+anchor_right = 0.661
+margin_left = 204.0
+margin_top = 243.0
+margin_right = -13.04
+margin_bottom = 263.0
+text = "test2"
+align = 1
+icon_align = 1
+items = [ "test1", null, false, 0, null, "test2", null, false, 1, null, "bob omb battle feild", null, false, 2, null, "level submission", null, false, 3, null ]
+selected = 1
 
 [connection signal="pressed" from="CanvasLayer/Control/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="file_selected" from="CanvasLayer/Control/FileDialog" to="." method="_on_FileDialog_file_selected"]

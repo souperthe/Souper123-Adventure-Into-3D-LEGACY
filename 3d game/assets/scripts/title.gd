@@ -20,7 +20,15 @@ func _ready():
 
 func _on_Button2_pressed():
 	#get_tree().change_scene("res://assets/scenes/bob.tscn")
-	$CanvasLayer/Control/FileDialog.popup()
+	var option = $CanvasLayer/Control/OptionButton.selected
+	if option == 0:
+		get_tree().change_scene("res://assets/scenes/test.tscn")
+	elif option == 1:
+		get_tree().change_scene("res://assets/scenes/test2.tscn")
+	elif option == 2:
+		get_tree().change_scene("res://assets/scenes/bob.tscn")
+	elif option == 3:
+		get_tree().change_scene("res://assets/scenes/level submission.tscn")
 	pass # Replace with function body.
 
 
